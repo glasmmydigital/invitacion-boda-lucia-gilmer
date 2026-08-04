@@ -1,0 +1,28 @@
+.img-1 {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .img-1 {
+    display: block;
+    margin-left: 0%;
+    position: absolute;
+    width: 25%;
+    margin-top: -250%;
+  }
+}
+/* Oculta la imagen por defecto */
+.img-2 {
+  display: none;
+}
+
+/* Muestra la imagen solo en teléfonos (máximo 768px de ancho, ajusta según lo necesario) */
+@media screen and (max-width: 500px) {
+  .img-2{
+    display: block;
+    margin-left: 70%;
+    position: absolute;
+    width: 30%;
+    margin-top: -144%;
+  }
+}

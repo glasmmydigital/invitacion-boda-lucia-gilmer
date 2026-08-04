@@ -1,0 +1,67 @@
+.contenedor-confir-asistencia {
+  position: relative;
+  text-align: center;
+}
+
+.colum-confir-asistencia {
+  background-color: #95A58D;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5%;
+  max-width: 525px;
+  margin: 0px auto;
+}
+
+.contenedor-texto {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.textosec {
+  font-family: "Cormorant", serif;
+  font-size: 20px;
+  margin: 0%;
+}
+
+.img-icon {
+  width: 20%;
+}
+
+.confir-asisten-button {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 5px 45px;
+  text-decoration: none;
+  border: 0px solid;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 20px;
+  font-family: "Cormorant", serif;
+  transition: all 0.3s ease;
+}
+
+.titulop {
+font-family: "Cormorant Garamond", serif;
+    text-transform: uppercase;
+    font-size: 40px;
+    color: #fdfffd;
+    margin-bottom: 0% !important;
+}
+
+.titulo-confir-aistencia {
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  color: #cba161;
+  margin-top: 0% !important;
+  margin-bottom: 0% !important;
+}
+
+.textSec {
+  font-family: "Cormorant", serif;
+  color: #ffffff;
+  font-size: 20px;
+  margin-right: 4%;
+  margin-left: 4%;
+}

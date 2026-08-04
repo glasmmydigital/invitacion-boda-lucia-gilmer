@@ -1,0 +1,130 @@
+.contenedor-regalos {
+  position: relative;
+  text-align: center;
+}
+
+.colum-regalos {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 525px;
+  margin: 0px auto;
+}
+
+.container-regalos {
+  margin-top: 5%;
+  margin-bottom: 8%;
+}
+
+.textosec {
+  font-family: "Cormorant", serif;
+  font-size: 20px;
+  margin-right: 7%;
+  margin-left: 7%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  color: #95A58D;
+}
+
+.titulop {
+  font-family: "Cormorant Garamond", serif;
+  text-transform: uppercase;
+  font-size: 40px;
+  line-height: 1.7;
+  color: #95A58D;
+  margin-top: 0% !important;
+  margin-bottom: 0% !important;
+}
+
+.numeroRegalo {
+  color: #95A58D;
+  text-decoration: none;
+}
+
+.titulo-dress {
+  font-family: "Roboto", serif;
+  font-weight: 600;
+  font-size: 30px;
+  color: #545454;
+  margin-top: 0% !important;
+  margin-bottom: 0% !important;
+}
+
+.img-icon {
+  width: 20%;
+  margin-bottom: 7%;
+}
+
+.img-icon-reg {
+  width: 15%;
+  margin-bottom: 3%;
+}
+
+.container-reg {
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+.img-1 {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .img-1 {
+    display: block;
+    margin-left: -50%;
+    position: absolute;
+    width: 24%;
+    margin-top: 6%;
+  }
+}
+
+/* Oculta la imagen por defecto */
+.img-2 {
+  display: none;
+}
+
+/* Muestra la imagen solo en teléfonos (máximo 768px de ancho, ajusta según lo necesario) */
+@media screen and (max-width: 500px) {
+  .img-2 {
+    display: block;
+    margin-left: 25%;
+    position: absolute;
+    width: 25%;
+    margin-top: 75%;
+  }
+}
+
+.button-regalo {
+  background-color: #95A58D;
+  color: #f8f8f8;
+  padding: 5px 45px;
+  text-decoration: none;
+  border: 2px solid;
+  font-weight: bold;
+  border-radius: 20px;
+  font-family: "Cormorant", serif;
+  transition: all 0.3s ease;
+}
+
+.button-regalo :hover :active {
+  background-color: #95A58D;
+  color: #f8f8f8;
+}
+
+.card {
+  width: 500px;
+}
+
+@media (max-width: 500px) {
+  .card {
+    width: 350px;
+  }
+}
+
+@media (max-width: 350px) {
+  .card {
+    width: 270px;
+  }
+}

@@ -1,0 +1,43 @@
+.contenedor-kids{
+  position: relative;
+  text-align: center;
+}
+
+.colum-kids{
+  padding: 5px;
+  padding-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  background-color: #95A58D;
+  color: white;
+  align-items: center;
+  max-width: 525px;
+  margin: 0px auto;
+}
+
+.textosec{
+  font-family: "Cormorant", serif;
+  font-size: 20px;
+  margin-right: 4%;
+  margin-left: 4%;
+}
+
+.textosec span{
+  font-family: "Cormorant", serif;
+  font-size: 28px;
+  margin-right: 4%;
+  margin-left: 4%;
+}
+
+.titulo-kids{
+  font-family: "BrittanySignature";
+  font-size: 65px;
+  line-height: 1.7;
+  color: #ffffff;
+  margin-top: 10%;
+  margin-bottom: 5%;
+}
+
+.img-icon{
+  width: 25%;
+}

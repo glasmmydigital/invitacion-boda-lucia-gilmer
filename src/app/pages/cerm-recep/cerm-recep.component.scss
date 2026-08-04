@@ -1,0 +1,83 @@
+.contenedor-cerem-recep {
+  position: relative;
+  //text-align: center;
+  margin-right: 5%;
+  margin-left: 5%;
+  padding: 40px 0px;
+}
+
+.colum-cerm {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 525px;
+  margin: 0px auto;
+}
+
+.colum-recep {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  //align-items: center;
+  max-width: 525px;
+  margin: 0px auto;
+}
+
+.textosec {
+  font-family: "Cormorant", serif;
+  color: #95A58D;
+  text-align: center;
+  font-weight: 400;
+  font-size: 20px;
+  font-style: normal;
+}
+
+.hora {
+  font-family: "Cormorant", serif;
+  color: #95A58D;
+  text-align: center;
+  font-weight: 400;
+  font-size: 28px;
+  font-style: normal;
+}
+
+.titulop {
+  font-family: 'Cormorant Garamond', serif;
+  align-items: last baseline;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 40px;
+  line-height: 1.7;
+  color: #95A58D;
+  margin-top: 0% !important;
+  margin-bottom: 0% !important;
+}
+
+.titulo-cerm-recep {
+  font-family: 'Cormorant Garamond', serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 30px;
+  color: #809eae;
+  margin-top: 0% !important;
+  margin-bottom: 0% !important;
+}
+
+.cerm-recep-button {
+  background-color: #95A58D;
+  color: #f8f8f8;
+  padding: 5px 45px;
+  text-decoration: none;
+  border: 2px solid;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 20px;
+  font-family: "Cormorant", serif;
+  transition: all 0.3s ease;
+}
+
+.img-icon {
+  width: 25%;
+  margin-bottom: 5%;
+}

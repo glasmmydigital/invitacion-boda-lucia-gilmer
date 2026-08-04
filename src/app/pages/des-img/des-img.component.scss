@@ -1,0 +1,77 @@
+.contenedor-des-img {
+  position: relative;
+  text-align: center;
+  padding: 0px 0px;
+}
+
+.colum-des-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 525px; /* Mantiene el ancho máximo */
+  margin: 0 auto;
+}
+
+.img-pareja{
+  width: 100%;
+  height: auto;
+}
+
+.textoT {
+  font-family: "Cormorant", serif;
+  color: rgb(7, 6, 6);
+  margin: 1% 5% 5% 5%;
+  text-align: center;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  font-style: normal;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+  grid-template-rows: repeat(2, auto); /* 2 filas ajustadas automáticamente */
+  gap: 10px; /* Espaciado entre los elementos */
+  width: 100%; /* Ocupa todo el ancho del contenedor padre */
+}
+
+.grid-item {
+  height: 250px; /* Altura fija para las celdas */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga */
+}
+
+.grid-item img {
+  width: 100%; /* Ocupa el ancho completo del contenedor */
+  height: 100%; /* Ocupa la altura completa del contenedor */
+  object-fit: cover; /* Recorta la imagen proporcionalmente */
+}
+
+
+.grid-item--width2 {
+  grid-column: span 2; /* Ocupa 2 columnas */
+}
+
+.grid-item--height2 {
+  grid-row: span 2; /* Ocupa 2 filas */
+}
+
+.textosec{
+  font-family:  "BrittanySignature";
+  font-size: 80px;
+  line-height: 1.5;
+  color: #95A58D;
+  margin-top: 0% !important;
+  margin-bottom: 0% !important;
+}
+
+.nom-pareja{
+  font-family: "Cormorant", serif;
+  font-size: 30px;
+  color: #222222;
+  margin-top: 0%;
+  margin-bottom: 0%;
+}

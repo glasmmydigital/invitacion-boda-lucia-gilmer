@@ -1,0 +1,121 @@
+<div class="contenedor-portada" >
+  <div class="portada-container" >
+    <img
+      src="assets/IMGJ&L(1).jpg"
+      alt="Invitación de Boda"
+      class="imagen-portada"
+    />
+  </div>
+
+  <div class="contenedor-conteo">
+    <!--<div class="contenedor-button-idioma">
+      <label class="switch">
+        <input type="checkbox" (change)="cambiarIdioma($event)" [attr.checked]="traductorService.lenguaje === 'ES' ? null : false">
+        <span class="slider"></span>
+      </label>
+      <label class="toggle-switch">
+        <input type="checkbox"  [attr.checked]="traductorService.lenguaje === 'EN' ? true : false" (change)="cambiarIdioma($event)">
+        <div class="toggle-switch-background">
+          <div class="toggle-switch-handle"></div>
+        </div>
+      </label>-->
+    <!--<p class="texto-idioma">
+        {{traductorService.getTexto("traduccion")}}
+      </p>
+    </div>-->
+    <div class="container-reg">
+      <div class="textName">
+        <p class="name1">GILMER</p>
+        <p class="name2"><span class="ampersand">y</span> LUCIA</p>
+      </div>
+    </div>
+
+    <br><br>
+    <div class="music-player">
+      <audio id="audioPlayer" autoplay controls>
+        <source src="assets/cancionG&L.mp3" type="audio/mp3" />
+        {{ traductorService.getTexto("pCancion") }}
+      </audio>
+    </div>
+    <!--
+      <img src="assets/fecha.jpg" width="100%" data-aos="zoom-in" data-aos-duration="3000">
+    -->
+    <br><br>
+
+    <div class="container-confir">
+      <p class="textoT" style="text-transform: uppercase;" data-aos="zoom-in" data-aos-duration="3000">
+          Sé parte del comienzo de nuestra nueva historia.
+      </p>
+      <p class="textosecf" data-aos="zoom-in" data-aos-duration="3000">
+        <span class="textoBoda" style="color: #fbfbfb;">Nuestra boda será el:</span> <br>
+        <span class="green-text" style="color: #fbfbfb;">12</span> | 
+        <span class="green-text" style="color: #fbfbfb;">09</span> | 
+        <span class="green-text" style="color: #fbfbfb;">26</span>
+      </p>
+      <img src="assets/ubicacion.png" width="10%" alt="ubicación" data-aos="zoom-in" data-aos-duration="3000">
+      <p class="textoT" style="text-transform: uppercase;" data-aos="zoom-in" data-aos-duration="3000">
+        Merino,
+        Perú.
+      </p>
+      <br>
+      <!-- <a
+        (click)="scrollToSection('confirm')"
+        class="cerm-recep-button">
+        CONFIRMACIÓN
+      </a> -->
+    </div>
+    <br><br>
+
+    <br>
+  </div>
+</div>
+
+<div class="contenedor-fech-img">
+  <div class="colum-fech-img" data-aos="zoom-in" data-aos-duration="3000">
+    <img class="img-pareja" src="assets/IMGJ&L(12).jpg" width="100%" >
+    <br>
+    <p class="textoTt " data-aos="zoom-in" data-aos-duration="3000">
+      Después de tantas risas compartidas, recuerdos inolvidables y viajes que nos unieron aún más, hemos
+      decidido preparar nuestras maletas una vez más, pero ahora para emprender la aventura más hermosa de
+      todas: nuestro matrimonio.
+    </p>
+    <p class="solofaltan" data-aos="zoom-in" data-aos-duration="3000">
+      {{ traductorService.getTexto("soloFaltan") }}
+    </p>
+    <br>
+    <div class="contador" data-aos="zoom-in" data-aos-duration="3000">
+      <div class="tiempo">
+        <div class="cuadro">
+          <div class="numero" id="dias">365</div>
+          <div class="etiqueta">
+            {{ traductorService.getTexto("counterDias") }}
+          </div>
+        </div>
+      </div>
+      <div class="tiempo">
+        <div class="cuadro">
+          <div class="numero" id="horas">12</div>
+          <div class="etiqueta">
+            {{ traductorService.getTexto("counterHoras") }}
+          </div>
+        </div>
+      </div>
+      <div class="tiempo">
+        <div class="cuadro">
+          <div class="numero" id="minutos">45</div>
+          <div class="etiqueta">
+            {{ traductorService.getTexto("counterMinutos") }}
+          </div>
+        </div>
+      </div>
+      <div class="tiempo">
+        <div class="cuadro">
+          <div class="numero" id="segundos">30</div>
+          <div class="etiqueta">
+            {{ traductorService.getTexto("counterSeg") }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

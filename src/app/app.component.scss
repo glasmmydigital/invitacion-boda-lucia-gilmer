@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@font-face {
+  font-family: Carentro;
+  src: url("/assets/Carentro DEMO.otf") format("truetype");
+}
+
+@font-face {
+  font-family: monof55;
+  src: url("/assets/monof55.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: BrittanySignature;
+  src: url("/assets/BrittanySignature.ttf") format("truetype");
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+#clickText {
+  position: absolute;
+  font-family: "Playfair Display", serif ;
+  bottom: 30%; /* Ajusta según lo necesites */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  color: #5b7287; /* Cambia el color según lo necesites */
+  cursor: pointer;
+  z-index: 20; /* Para asegurarse de que esté por encima de los otros elementos */
+  transition: opacity 0.3s ease;
+}
+
+.prueba
+{
+  width: 100%;
+}
+
+#sobreContainer {
+  display: none;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+#sobre1, #sobre2 {
+  position: absolute;
+  width: 85%;
+  height: 100%;
+  transition: transform 1s ease-in-out;
+}
+
+#sobre1 {
+  left: 0;
+  transform-origin: left center;
+}
+
+#sobre2 {
+  right: 0;
+  transform-origin: right center;
+}
+
+#sobre1.open {
+  transform: translateX(-100%);
+}
+
+#sobre2.open {
+  transform: translateX(100%);
+}
+
+#contenido {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+}
+
+#selloButton {
+  animation: pulse 1.5s infinite;
+  transition: transform 0.2s ease;
+  z-index: 30;
+  position: relative; /* necesario para el tooltip */
+  cursor: pointer;
+}
+
+/* efecto de "latido" */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Tooltip estilizado */
+#selloButton::after {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  font-size: 0.9rem;
+  font-family: "Playfair Display", serif;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 50;
+}
+
+/* Flechita del tooltip */
+#selloButton::before {
+  content: "";
+  position: absolute;
+  bottom: -20px; /* Ajusta la posición de la flecha */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #000 transparent transparent transparent;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 50;
+}
+
+/* Mostrar tooltip al hover */
+#selloButton:hover::after,
+#selloButton:hover::before {
+  opacity: 1;
+}
+
+
+/* Contenedor de la imagen */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 60vh; /* La imagen ocupará el 60% de la altura de la pantalla */
+  overflow: hidden;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Contenedor del texto */
+.text-container {
+  position: absolute;
+  bottom: 10%; /* Ajusta según la posición deseada */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+/* Estilo del sello */
+#selloButton {
+  position: absolute;
+  top: 39%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  cursor: pointer;
+  width: 40%; /* Ajusta el tamaño según tus necesidades */
+  height: auto;
+}
+
+
+@media (min-width: 700px) {
+  #sobreContainer {
+    display: none;
+  }
+  #contenido {
+    display: flex !important;
+  }
+}
+

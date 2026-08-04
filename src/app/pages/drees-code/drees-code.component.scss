@@ -1,0 +1,134 @@
+.contenedor-dress-code{
+  position: relative;
+  text-align: center;
+}
+
+.colum-dress-code{
+  background-color: #95A58D;
+  padding: 5px;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 525px;
+  margin: 0px auto;
+}
+
+.textosec{
+  color: #ffffff;
+  font-family: "Cormorant", serif;
+  font-size: 20px;
+  margin-right: 4%;
+  margin-left: 4%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
+
+.img-1 {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .img-1 {
+    display: block;
+    margin-left: 0%;
+    position: absolute;
+    width: 24%;
+    margin-top: 78%;
+  }
+}
+
+.img-2 {
+  display: none;
+}
+
+/* Muestra la imagen solo en teléfonos (máximo 768px de ancho, ajusta según lo necesario) */
+@media screen and (max-width: 500px) {
+  .img-2{
+      display: block;
+      margin-left: 76%;
+      position: absolute;
+      width: 25%;
+      margin-top: 0%;
+  }
+}
+
+.titulop{
+  font-family: "BrittanySignature";
+  text-align: right;
+  font-size: 65px;
+  line-height: 1.7;
+  color: #ffffff;
+  margin-top: 18%;
+  margin-bottom: 5%;
+}
+
+.img-icon{
+  width: 50%;
+}
+
+.titulo-dress {
+  font-family: Carentro;
+  font-weight: bold;
+  font-size: 25px;
+  color: white;
+  margin: 10px 0;
+  letter-spacing: 1px;
+}
+
+.dress-columns {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  margin-top: 20px;
+  /* margin: 20px 0 4% 4%;*/
+}
+
+.dress-cont {
+  text-align: center;
+  color: white;
+}
+
+.titulo-genero {
+  font-family: "Carentro";
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+.descripcion {
+  font-family: "Cormorant", serif;
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-left: 4%;
+  margin-right: 4%;
+  line-height: 1.4;
+}
+
+.btn-dress-code {
+  background-color: white;
+  color: black;
+  border: none;
+  text-decoration: none;
+  padding: 4px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: "Carentro";
+  transition: background-color 0.3s;
+}
+
+.btn-inspiracion:hover {
+  background-color: #ddd;
+}
+
+.divisor {
+  width: 3px;
+  background-color: white;
+  min-height: 100px;
+  margin-top: 10px;
+}
+
+

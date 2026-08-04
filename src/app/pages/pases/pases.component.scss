@@ -1,0 +1,36 @@
+.contenedor-pases{
+  position: relative;
+  text-align: center;
+}
+
+.colum-pases{
+  padding: 5px;
+  padding-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  background-color: #000000;
+  color: white;
+  align-items: center;
+  max-width: 525px;
+  margin: 0px auto;
+}
+
+.contenedor-texto{
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+.textosec{
+  font-family: "Cormorant", serif;
+  font-size: 20px;
+  margin: 0%;
+}
+
+.titulo-pases{
+  font-family: "BrittanySignature";
+  font-size: 65px;
+  line-height: 1.7;
+  color: #ffffff;
+  margin-top: 10%;
+  margin-bottom: 5%;
+}

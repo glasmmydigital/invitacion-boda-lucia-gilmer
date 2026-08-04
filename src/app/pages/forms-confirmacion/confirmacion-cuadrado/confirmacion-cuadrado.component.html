@@ -1,0 +1,315 @@
+<div class="container-fluid"  id="rsvp">
+  <div class="row" id="confirm">
+    <ngx-skeleton-loader *ngIf="!invitacionConfimacion" appearance="line" count="8"/>
+    <div class="form-container" *ngIf="invitacionConfimacion" [formGroup]="formGroup">
+      <br><br>
+      <h2 *ngIf="!invitacionConfimacion.confirmacion"
+      class="text-center titulo"
+      id="titulo">{{ confirmContainer['titulo'] || traductorService.getTexto('mensaje_confirmado') }}
+
+      </h2>
+      <h2 *ngIf="invitacionConfimacion.confirmacion" class="text-center titulo" id="titulo">
+        {{ confirmContainer['titulo'] || traductorService.getTexto('yaConfirAsistencia') }}
+      </h2>
+    <div>
+
+      <label *ngIf="!isFechaLimitePasada()">
+          <input class="input-limite" type="radio" [checked]="!isFechaLimitePasada()" [disabled]="isFechaLimitePasada()" >
+        <div class="conten-inf">
+
+          <p *ngIf="!!invitacionConfimacion?.nombre" class="text-title" id="label-nombre-invitado">
+            {{ confirmContainer['label-nombre-invitado'] || '' }}
+            <span class="" id="nombre-invitado">{{ invitacionConfimacion.nombre || "" }}</span>
+          </p>
+          <br>
+          <!--
+          <p class="text-center text" id="recuerda-detalles">
+            {{ confirmContainer['recuerda-detalles'] || 'Recuerda los siguientes detalles importantes' }}
+          </p>
+          -->
+          <p *ngIf="!!invitacionConfimacion?.invitacion && !!invitacionConfimacion?.invitacion?.fecha_evento && !invitacionConfimacion.confirmacion"
+            class="text-center text" style="max-width: 600px;"
+            id="fecha-evento">
+            {{ confirmContainer['fecha-evento'] || traductorService.getTexto('mensajeBienvenidaConfirm') }}
+            <span id="fecha-invitacion">
+                {{ invitacionConfimacion.fecha_limite_confirmo | date:"dd/MM/yyyy" }}
+            </span>
+          </p>
+
+        </div>
+
+        <div *ngIf="invitacionConfimacion.confirmacion?.confirmado == 1" >
+          <p *ngIf="invitacionConfimacion.confirmacion" class="text-center text" id="total-invitados">
+            {{ confirmContainer['total-invitados'] || traductorService.getTexto('totalInvitadosConfirmado') }}
+            <span class="numeros"
+                  id="total-number-invitados">{{ invitacionConfimacion.confirmacion.total_personas_conf || "" }}</span>
+          </p>
+
+
+          <p *ngIf="invitacionConfimacion?.mesa_asignada && invitacionConfimacion?.confirmacion"
+            class="text-center text" id="num-mesa">
+            {{ confirmContainer['num-mesa'] || traductorService.getTexto('mesa') }}
+            <span class="numeros" id="total-number-invitados">{{ invitacionConfimacion.mesa_asignada }}</span>
+          </p>
+
+        </div>
+
+        <div *ngIf="!invitacionConfimacion.confirmacion && !invitacionConfimacion?.nombre"
+            class="row justify-content-center mt-5">
+          <div class="col-md-8 col-lg-6 col-12">
+            <label class="form-label text-center label-text" for="nombre" id="nombre">
+              {{ confirmContainer['nombre'] || 'Nombre completo' }}
+            </label>
+            <input class="input-box w-100 text-center" formControlName="nombre" id="input-nombre"
+                  name="nombre"
+                  [placeholder]="confirmContainer['input-nombre'] || 'Ingresa tu nombre'"/>
+          </div>
+          <div *ngIf="formGroup.get('nombre')?.touched && !formGroup.get('nombre')?.valid" class="error-alert-text"
+              role="alert">
+
+            <p *ngIf="validators('nombre').required" id="error-nombre">
+              {{ confirmContainer['error-nombre'] || 'Ingresa tu nombre para confirmar tu asistencía' }}
+            </p>
+
+          </div>
+        </div>
+
+        <div class="container-radio-button" *ngIf="!invitacionConfimacion.confirmacion">
+          <div class="colum-radio-button">
+            <div class="radio-inputs">
+              <div class="titulo-radio-button-container">
+                <p class="text-title">{{traductorService.getTexto("asistiras")}}</p>
+              </div>
+              <div class="container-label-radio-button">
+                <label class="radio">
+                  <input
+                    type="radio"
+                    name="radio"
+                    (change)="onRadioChange('si')"
+                    [checked]="radioValue === 'si'"
+                  />
+                  <span class="name">{{traductorService.getTexto("siAsistire")}}</span>
+                </label>
+                <label class="radio">
+                  <input
+                    type="radio"
+                    name="radio"
+                    (change)="onRadioChange('no')"
+                    [checked]="radioValue === 'no'"
+                  />
+                  <span class="name">{{traductorService.getTexto("noAsistira")}}</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div *ngIf="showForm" >
+          <div class="container-asistentes" >
+            <div *ngIf="!invitacionConfimacion.confirmacion" class="container-cant-asis">
+              <div class="colum-asistentes">
+                <label class="form-label  label-text" for="cant_asistir" id="label-cant-asis">
+                  {{ confirmContainer['label-cant-asis'] || traductorService.getTexto('cantidadAsistentes') }}
+                </label>
+                <div></div>
+
+                <input
+                  type="number"
+                  class="input-box w-10"
+                  formControlName="cant_asistir"
+                  id="cant_asistir"
+                  name="cant_asistir"
+                  [placeholder]="confirmContainer['cant_asistir'] || traductorService.getTexto('mensajeBienvenidaConfirm')"
+                  readonly
+                />
+              </div>
+              <div *ngIf="!formGroup.get('cant_asistir')?.valid" class="error-alert-text" role="alert">
+                <p *ngIf="validators('cant_asistir').required || validators('cant_asistir').min"
+                  id="error-cant-asistir-req">
+                  {{ confirmContainer['error-cant-asistir-req'] || traductorService.getTexto('alertaMinimoConfirmaciones') }}
+                </p>
+                <p *ngIf="validators('cant_asistir').max" id="error-cant-asistir-max">
+                  {{ confirmContainer['error-cant-asistir-max'] || traductorService.getTexto('alertaPuedesConfirmarHasta') }}
+                  {{ validators('cant_asistir').max.max }}
+                  {{ validators('cant_asistir').max.max > 1 ? 'invitados' : 'invitado' }}</p>
+              </div>
+            </div>
+
+            <div *ngIf="!invitacionConfimacion.confirmacion && invitacionConfimacion.mesa_asignada" class="container-cant-asis">
+              <div class="colum-asistentes">
+                <label class="form-label  label-text" for="mesa_asignada" id="label-cant-asis">
+                  {{ confirmContainer['label-cant-asis'] || traductorService.getTexto('mesaAsignada') }}
+                </label>
+                <div>
+
+                </div>
+
+                <input
+                class="input-box w-10"
+                formControlName="mesa_asignada"
+                id="mesa_asignada"
+                name="mesa_asignada"
+                [placeholder]="confirmContainer['mesa_asignada'] || ''"
+                type="number"
+                readonly
+              />
+
+              </div><br><br>
+              <p class="text-center text" style="max-width: 600px;" id="fecha-evento">
+                {{traductorService.getTexto('txtapconfirm')}}
+              </p>
+            </div>
+            <!-- <p *ngIf="!!invitacionConfimacion?.mesa_asignada" class="text-center text" id="mesa-asignada">
+              {{ confirmContainer['mesa-asignada'] || 'Mesa asignada:' }}
+              <span class="fw-bold" id="mesa-numero">#{{ invitacionConfimacion.mesa_asignada || "" }}</span>
+            </p> -->
+          </div>
+          <p  class="text-center text" id="label-nombre-invitado">
+            <span class="" id="nombre-invitado">{{  traductorService.getTexto('sininvitadostxt') }}</span>
+          </p>
+          <div class="row justify-content-center mt-3">
+            <div class="col-md-8 col-lg-6 col-12">
+              <div *ngFor="let acompanante of acompanantesList; let i = index " class=" row ">
+
+                <div class="contenedor-agregar-compañante col-7">
+                  <div class="colum-nombre-asistente">
+                    <input [formControlName]="acompanante" [name]="acompanante" class="nombre-acompanante input-box2 "
+                          id="input-nombre-acompanante"
+
+                          [placeholder]="confirmContainer['input-nombre-acompanante'] || traductorService.getTexto('NombreInvitadoInput')" required
+                    />
+                    <div>
+                    </div>
+                    <div class="container-mas-menos">
+                      <div class="container-buttons-mas-menos">
+                        <div>
+                          <button (click)="removeAcompanante()" class="btn-menos-invitados"
+                              id="btn-menos"
+                              type="button">-
+                          </button>
+                        </div>
+                        <div>
+                          <button (click)="addAcompanante(i + 2)"
+                              *ngIf="(i + 1 == acompanantesList.length) && (i + 1) < this.cantAsistir"
+                              class="btn-mas-invitados"
+                              id="btn-mas" type="button">+
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div *ngIf="!invitacionConfimacion.confirmacion" class="row justify-content-center">
+            <div class="button-confirmacion-container">
+              <button class="button-confirm" (click)="saveConfir()" *ngIf="!isLoading" id="btn-confirmar">
+                {{ confirmContainer['btn-confirmar'] || traductorService.getTexto('botonConfirmacion') }}
+              </button>
+              <ng-icon *ngIf="isLoading" [size]="'25px'" class="rotate" name="matAutorenew"
+                      style="width: 25px;height: 30px;"></ng-icon>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="invitacionConfimacion.confirmacion" class="row justify-content-center mt-3">
+          <div class="col-md-8 col-lg-6 col-12">
+            <h5 class="text text-center" *ngIf="!invitacionConfimacion?.confirmacion">
+              {{ confirmContainer['sin-acompanantes'] || traductorService.getTexto('txtNoAsistencia') }}
+            </h5>
+            <div *ngFor="let acompanante of invitacionConfimacion.confirmacion?.acompanantes?.split(',')">
+              <!-- Aquí puedes mostrar información específica de cada acompañante -->
+            </div>
+            <ul class="list-group list-group-flush text-center" [ngStyle]="{'list-style-type': (invitacionConfimacion.confirmacion?.acompanantes && cantAsistir > 1) ? 'disc' : 'none'}">
+              <li *ngFor="let acompanante of (
+                  (invitacionConfimacion.confirmacion?.acompanantes === 'No especificado' && cantAsistir > 1)
+                    ? [traductorService.getTexto('invitNoEspecificado')]
+                    : (invitacionConfimacion.confirmacion?.acompanantes
+                        ? (invitacionConfimacion.confirmacion?.acompanantes || '').split(',')
+                        : []
+                    )
+                )"
+                class="form-confirmacion-text-acompanantes label-text" id="acompanante">
+                {{ acompanante }}
+              </li>
+            </ul>
+
+            <h5 class="text text-center" *ngIf="!invitacionConfimacion.confirmacion?.acompanantes">
+              {{ confirmContainer['sin-acompanantes'] || traductorService.getTexto('txtNoAsistencia') }}
+            </h5>
+            <br>
+          </div>
+        </div>
+
+
+
+        <h4 *ngIf="invitacionConfimacion.confirmacion?.confirmado == 1" class="confirmacion-terminada" id="te-esperamos">
+          {{ confirmContainer['te-esperamos'] || traductorService.getTexto('despedidaEsperamosVerte') }}
+        </h4>
+        <div *ngIf="showNotAttendingConfirmation" >
+          <div class="container-asistentes" >
+            <div class="container-cant-asis">
+              <div class="radio-inputs">
+                <div class="titulo-radio-button-container">
+                  <p class="titulo-radio-button">{{traductorService.getTexto("estasSeguro")}}</p>
+
+                  <div *ngIf="!invitacionConfimacion.confirmacion" class="row justify-content-center">
+
+                    <div class="button-confirmacion-container">
+                      <button class="button-confirm" (click)="saveConfirmacion()" *ngIf="!isLoading" id="btn-confirmar">
+                        {{ confirmContainer['btn-confirmar'] || traductorService.getTexto('botonConfirmacion') }}
+                      </button>
+                      <ng-icon *ngIf="isLoading" [size]="'25px'" class="rotate" name="matAutorenew"
+                              style="width: 25px;height: 30px;"></ng-icon>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </label>
+      <div *ngIf="!isFechaLimitePasada()">
+        <br><br><br><br>
+      </div>
+    </div>
+    <!--Contenedor del modal
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confirmationModalLabel">Confirmación</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>hola</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" >Confirmar</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+      <div>
+        <label class="isFechaPasada" *ngIf="isFechaLimitePasada()">
+          <input class="input-limite" type="radio" [checked]="isFechaLimitePasada()" [disabled]="isFechaLimitePasada()" >
+          <p class="text">{{traductorService.getTexto("fechaConfirmacionCaducada")}}</p>
+          <p class="text">{{traductorService.getTexto("fechaConfirmacionCaducadaDos")}}</p>
+        </label>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>

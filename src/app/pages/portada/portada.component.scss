@@ -1,0 +1,520 @@
+.portada-container {
+  position: relative;
+}
+
+.imagen-portada {
+  width: 100%;
+  height: auto; /* Ajusta según tus necesidades */
+}
+
+.nombrePortada {
+  position: absolute;
+  width: 100%;
+  top: 100%; /* Ajusta para mover el texto hacia arriba o abajo */
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centra el texto en el medio */
+  font-family: Carentro;
+  font-size: 5rem;
+  color: white; /* Cambia el color según el contraste necesario */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.86); /* Sombra para legibilidad */
+  margin-top: -15%;
+}
+@font-face {
+  font-family: Nathalia;
+  src: url("/assets/Nathalia.ttf") format("truetype");
+}
+
+.tituloportada {
+  position: absolute;
+  width: 100%;
+  top: 100%; /* Ajusta para mover el texto hacia arriba o abajo */
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centra el texto en el medio */
+  font-family: "Playfair Display", serif;
+  font-size: 4rem;
+  margin-bottom: 0;
+  color: white; /* Cambia el color según el contraste necesario */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.86); /* Sombra para legibilidad */
+  margin-top: -20%;
+}
+
+.testasinvitado {
+  color: #f3faff;
+  font-size: 25px;
+}
+
+.solofaltan {
+  font-family: "Playfair Display", serif;
+  color: #95A58D; /* Cambia el color según el contraste necesario */
+  font-size: 40px;
+  margin-top: 0% !important;
+  margin-bottom: 0% !important;
+}
+
+.green-text {
+  color: #000;
+}
+
+.container-reg {
+  margin-top: 15%;
+}
+
+.textName {
+  position: relative;
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: #ffffff; /* tono gris-azulado */
+  line-height: 1;
+}
+
+.name1 {
+  text-transform: uppercase;
+  padding-right: 30px;
+}
+.name2 {
+  padding-left: 30px;
+  margin: 0;
+}
+
+.ampersand {
+  padding-right: 0%;
+  font-family: Nathalia;
+  font-size: 90px;
+  color: #ffffff; /* evita que interfiera con selección/click */
+}
+
+@media (max-width: 500px) {
+  .ampersand {
+    left: 77%;
+  }
+}
+
+.contenedor-portada {
+  background-color: #ffffff;
+  position: relative;
+  text-align: center;
+
+  .imagen-portada {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Asegura que la imagen cubra todo el área */
+    max-width: 525px; /* Tamaño máximo para mantenerla más estrecha */
+    margin: 0 auto; /* Centra la imagen */
+  }
+
+  /* Media query para pantallas de tablets */
+  @media (max-width: 768px) {
+    .nombrePortada {
+      margin-top: -32%;
+      font-size: 4rem;
+      width: 100%;
+    }
+
+    .tituloportada {
+      margin-top: -40%;
+      font-size: 30px;
+      width: 100%;
+    }
+
+    .testasinvitado {
+      color: #819aab;
+      font-size: 20px;
+    }
+
+    .imagen-portada {
+      max-width: 525px; /* Ajusta el ancho máximo en tabletas */
+    }
+  }
+
+  .testasinvitado {
+    font-family: "Playfair Display", serif;
+    font-size: 40px;
+  }
+
+  .contenedor-conteo {
+    background-color: #95A58D;
+    //padding: 20px; // Agrega padding
+    display: flex; // Usar flexbox para alinear elementos
+    flex-direction: column; // Dirección de los elementos en columna
+    //align-items: center; // Centra los elementos
+    max-width: 525px; // Asegura el mismo ancho que la imagen
+    margin: 0px auto; // Centra horizontalmente y añade margen superior e inferior
+  }
+
+  .titulop {
+    font-family: Nathalia;
+    line-height: 0.7;
+    text-align: center;
+    font-size: 80px;
+    color: #ab9047;
+    margin-top: 0% !important;
+    margin-bottom: 0% !important;
+  }
+
+  .titulop2 {
+    font-family: Nathalia;
+    line-height: 0.7;
+    text-align: center;
+    font-size: 80px;
+    color: #ab9047;
+    margin-top: 0% !important;
+    margin-bottom: 0% !important;
+  }
+
+  .cerm-recep-button {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 5px 45px;
+    text-decoration: none;
+    border: 2px solid;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 20px;
+    font-family: "Cormorant", serif;
+    transition: all 0.3s ease; /* Transición para un efecto más suave */
+  }
+
+  .textosec {
+    font-family: "Cormorant", serif;
+    color: white;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-style: italic;
+    text-align: center;
+    font-weight: 400;
+    font-size: 28px;
+    margin-bottom: 0%;
+  }
+
+  .contenedor-button-idioma {
+    display: flex; /* Asegura que los elementos estén alineados en una fila */
+    align-items: center; /* Alinea verticalmente los elementos */
+    gap: 10px; /* Espaciado entre el botón y el texto */
+    margin-bottom: 20px;
+    justify-content: center; /* Opcional: centra horizontalmente dentro del contenedor */
+  }
+  .texto-idioma {
+    font-family: "Cormorant", serif;
+    font-style: normal;
+    font-size: 20px;
+    margin: 0%;
+  }
+
+  .music-player {
+    display: block;
+    margin-bottom: 20px; /* Espacio entre el reproductor y el contador */
+  }
+
+  @media (max-width: 480px) {
+    .numero {
+      font-size: 1.8rem;
+    }
+
+    .etiqueta {
+      font-size: 1rem;
+    }
+
+    .cuadro {
+      width: 80px;
+      height: 100px;
+    }
+    .nombrePortada {
+      margin-top: -13%;
+      font-size: 65px;
+      line-height: 1;
+      width: 100%;
+    }
+
+    .tituloportada {
+      margin-top: -60%;
+      font-size: 30px;
+      width: 100%;
+    }
+
+    .testasinvitado {
+      color: #819aab;
+      font-size: 30px;
+    }
+  }
+}
+
+.textoBoda {
+  font-family: "Nathalia";
+  color: #fbfbfb;
+  text-align: center;
+  font-size: 50px;
+  margin-right: 0%;
+  margin-left: 0%;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #efe3cf;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2em;
+  width: 2em;
+  inset: 0;
+  background-color: white;
+  border-radius: 50px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.switch input:checked + .slider {
+  background: #ab9047;
+}
+
+.switch input:focus + .slider {
+  box-shadow: 0 0 1px #ab9047;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(1.6em);
+}
+
+.container-confir {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.textoT {
+  font-family: "Cormorant", serif;
+  color: rgb(255, 255, 255);
+  margin: 1% 5% 5% 5%;
+  text-align: center;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  font-style: normal;
+}
+
+.textoTt {
+  font-family: "Cormorant", serif;
+  color: #95A58D;
+  margin: 1% 5% 5% 5%;
+  text-align: center;
+  font-weight: 400;
+  font-size: 20px;
+  //letter-spacing: 1.5px;
+  font-style: normal;
+}
+
+.fila-fech {
+  padding-top: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 525px;
+}
+
+.info-fech {
+  align-items: center;
+  text-align: center;
+  flex: 1 1 45%;
+  max-width: 525px;
+  padding: 10px;
+}
+
+.titulo-fech {
+  font-family: "Cormorant", serif;
+  color: #ffffff;
+  margin: 0;
+  text-align: center;
+}
+
+.texto-fech-grande {
+  font-family: "Cormorant", serif;
+  color: #ffffff;
+  font-size: 60px;
+  font-weight: bold;
+  line-height: 0.5;
+}
+
+.texto-fech-chico {
+  font-family: "Cormorant", serif;
+  color: #ffffff;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.linea-vertical {
+  width: 3px;
+  background-color: #ffffff;
+  min-height: 100px;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .fila-fech {
+    flex-direction: row;
+    align-items: stretch;
+    max-width: 100%;
+  }
+
+  .info-fech {
+    flex: 1 1 50%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .texto-fech-grande {
+    font-size: 80px;
+  }
+
+  .texto-fech-chico {
+    font-size: 30px;
+  }
+}
+
+.contenedor-fech-img {
+  position: relative;
+  text-align: center;
+}
+
+.colum-fech-img {
+  //padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 525px;
+  margin: 0px auto;
+}
+
+.textosecf {
+  font-family: "Playfair Display", serif;
+  color: #fbfbfb;
+  text-align: center;
+  font-size: 40px;
+  margin-right: 0%;
+  margin-left: 0%;
+  padding-bottom: 6%;
+}
+
+.green-text {
+  color: #ffffff;
+}
+
+.img-pareja {
+  width: 100%;
+  height: auto;
+}
+
+.contador {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Espaciado entre bloques */
+}
+
+.tiempo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cuadro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 12px 20px; /* Espaciado dentro del cuadro */
+  width: 100px; /* Ancho fijo para todos los cuadros */
+  height: 120px; /* Alto fijo para que todos tengan el mismo tamaño */
+  text-align: center;
+}
+
+.tiempo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  &::after {
+    content: ":";
+    position: absolute;
+    right: -13px;
+    top: 12%;
+    font-size: 2.5rem;
+    align-items: center;
+    color: #95A58D;
+  }
+
+  &:last-child::after {
+    content: "";
+  }
+}
+
+.numero {
+  font-family: "Cormorant", serif;
+  font-size: 2.5rem; /* Tamaño reducido del número */
+  font-style: normal;
+  color: #95A58D; /* Color más fuerte */
+}
+
+.etiqueta {
+  font-size: 1.1rem; /* Tamaño de la etiqueta */
+  font-family: "Playfair Display", serif;
+  font-style: normal;
+  color: #95A58D; /* Color más fuerte */
+  margin-top: 5px;
+}
+
+// Responsividad
+@media (max-width: 768px) {
+  .numero {
+    font-size: 3rem;
+  }
+
+  .etiqueta {
+    font-size: 1.2rem;
+  }
+
+  .cuadro {
+    width: 90px;
+    height: 110px;
+  }
+}

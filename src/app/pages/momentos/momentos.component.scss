@@ -1,0 +1,105 @@
+.contenedor-nuest-momen{
+  position: relative;
+  text-align: center;
+}
+
+.colum-nuest-momen{
+  //padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 525px;
+  margin: 0px auto;
+}
+
+.img-pareja{
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .carousel-container {
+    height: 790px; /* Altura fija para pantallas de computador */
+  }
+  .carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ajusta las imágenes para que se muestren completas */
+    border-radius: 8px; /* Bordes suaves para un toque elegante */
+  }
+}
+
+.img-qr{
+  width: 30%;
+  height: 30%;
+}
+
+.titulo-momen{
+  font-family: Nathalia;
+  font-size: 65px;
+  color: #8a8e75;
+  margin-bottom: 0% !important;
+}
+
+.textosec{
+  font-family: "Cormorant", serif;
+  font-size: 20px;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.carousel-container {
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden; /* Esconde las imágenes que se salen del área visible */
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* Transición suave para las imágenes */
+  will-change: transform; /* Optimiza la animación */
+}
+
+.carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que las imágenes no se deformen */
+  border-radius: 8px; /* Bordes suaves para un toque elegante */
+}
+
+.confir-asisten-button{
+  background-color: #8a8e75;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-family: "Cormorant", serif;
+}
+
+.titulop{
+  font-family:  Nathalia;
+  font-size: 80px;
+  line-height: 0.5;
+  color: #ab9047;
+  margin-top: 0% !important;
+  margin-bottom: 0% !important;
+}
+
+
+@media (min-width: 768px) {
+  .titulo-momen{
+    font-size: 80px;
+  }
+}
+
+@media (max-width: 464px) {
+  .titulo-momen{
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 370px) {
+  .titulo-momen{
+    font-size: 40px;
+  }
+}

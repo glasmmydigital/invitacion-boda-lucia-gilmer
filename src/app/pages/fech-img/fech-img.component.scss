@@ -1,0 +1,97 @@
+.contenedor-fech-img{
+  position: relative;
+  text-align: center;
+}
+
+.colum-fech-img{
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 525px;
+  margin: 0px auto;
+}
+.img-pareja{
+  width: 100%;
+  height: auto;
+}
+
+.textosec{
+font-family: "BrittanySignature";
+    font-size: 30px;
+    line-height: 1.7;
+    color: #95A58D;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+.titulo-momen{
+  font-family: "Cormorant Garamond", serif;
+  text-transform: uppercase;
+  font-size: 40px;
+  color: #95A58D;
+  margin-bottom: 0% !important;
+}
+
+.fecha-boda{
+  font-family: Nathalia;
+  font-style: italic;
+  font-size: 55px;
+  color: #cba161;
+  margin-top: 0% !important;
+  margin-bottom: 0% !important;
+}
+
+@media (max-width: 768px){
+  .fecha-boda{
+    font-family: Nathalia;
+    font-size: 60px;
+    margin-bottom: 0;
+    color: #cba161;
+    margin-top: 0% !important;
+    margin-bottom: 0% !important;
+  }
+}
+@media (max-width: 415px){
+  .fecha-boda{
+    font-family: Nathalia;
+    font-size: 40px;
+    margin-bottom: 0;
+    color: #cba161;
+    margin-top: 0% !important;
+    margin-bottom: 0% !important;
+  }
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+  grid-template-rows: repeat(2, auto); /* 2 filas ajustadas automáticamente */
+  gap: 10px; /* Espaciado entre los elementos */
+  width: 100%; /* Ocupa todo el ancho del contenedor padre */
+}
+
+.grid-item {
+  height: 250px; /* Altura fija para las celdas */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga */
+}
+
+.grid-item img {
+  width: 100%; /* Ocupa el ancho completo del contenedor */
+  height: 100%; /* Ocupa la altura completa del contenedor */
+  object-fit: cover; /* Recorta la imagen proporcionalmente */
+}
+
+
+.grid-item--width2 {
+  grid-column: span 2; /* Ocupa 2 columnas */
+}
+
+.grid-item--height2 {
+  grid-row: span 2; /* Ocupa 2 filas */
+}
+

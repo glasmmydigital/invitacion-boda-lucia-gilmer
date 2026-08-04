@@ -1,0 +1,50 @@
+.tBendicion{
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 25px;
+  color: #1E2022;
+  margin: 0% 0% 10px 0%;
+}
+
+.contenedor-padres {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  max-width: 100%; /* Asegura que ocupe todo el ancho */
+  margin-bottom: 40px;
+}
+
+.nombres-container {
+  display: flex;
+  justify-content: space-between; /* Espacio entre los bloques de izquierda y derecha */
+  align-items: center; /* Centra verticalmente los nombres en el contenedor */
+  width: 100%; /* Ocupa el ancho completo del contenedor */
+}
+
+.nombres {
+  display: flex;
+  align-items: center;
+  flex-direction: column; /* Organiza los nombres en una columna*/
+}
+
+.izquierda p,
+.derecha p {
+    margin: 5px 0; /* Espaciado entre los nombres */
+}
+.izquierda{
+  margin-bottom: 25px;
+}
+
+.titulo {
+  font-family: "Playfair Display", serif;
+  font-size: 25px;
+  color: #ab9047;
+  margin-bottom: 10px;
+}
+
+.nom-padres{
+  font-family: "Cormorant", serif;
+  font-size: 18px;
+  margin-right: 0%;
+  margin-left: 0%;
+}

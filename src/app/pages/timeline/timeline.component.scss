@@ -1,0 +1,146 @@
+.contenedor.linetime{
+  position: relative;
+  text-align: center;
+  padding: 0px 0px;
+  background-color: #f0ece5;
+}
+.colum-timeline{
+  max-width: 525px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px auto;
+  background-color: #ffffff;
+}
+
+.timeline-container {
+  display: flex;
+  justify-content: center;
+
+  position: relative;
+  padding: 20px;
+}
+
+/* Oculta la imagen por defecto */
+.img-2 {
+  display: none;
+}
+
+/* Muestra la imagen solo en teléfonos (máximo 768px de ancho, ajusta según lo necesario) */
+@media screen and (max-width: 500px) {
+  .img-2{
+    display: block;
+    margin-left: 70%;
+    position: absolute;
+    width: 30%;
+    margin-top: 20%;
+  }
+}
+
+.timeline-column-left,
+.timeline-column-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ajusta la distribución vertical */
+  gap: 40px; /* Reduce el espacio entre elementos */
+}
+
+.timeline-column-left img {
+  width: 45px; /* Ajusta el tamaño de la imagen */
+  height: auto; /* Mantén las proporciones */
+}
+
+.timeline-line {
+  width: 2px;
+  background-color: #95A58D;
+  position: relative;
+  margin: 0 15px; /* Reduce el espacio horizontal */
+}
+
+.timeline-line {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuye los puntos uniformemente */
+  align-items: center;
+  width: 2px;
+  background-color: #95A58D;
+  position: relative;
+  margin: 0 25px;
+}
+
+.timeline-column-right .event {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.timeline-point {
+  width: 14px;
+  height: 14px;
+  background-color: #95A58D;
+  border-radius: 50%;
+}
+
+.event-title {
+font-family: "Cormorant Garamond", serif;
+  color: #95A58D !important;
+  text-decoration: none;
+  font-stretch: expanded; /* Ensancha la fuente */
+  text-transform: uppercase;
+  font-size: 17px;
+  margin: 0;
+}
+
+.btn-dress-code {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border: none;
+  text-decoration: none;
+  padding: 3px 18px;
+  border-radius: 15px;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: "Carentro";
+  transition: background-color 0.3s;
+}
+
+.event-time {
+  font-family: "Cormorant", serif;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  color: #95A58D !important;
+}
+
+.event-ubi {
+  font-family: "Cormorant", serif;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 20px;
+  color: #95A58D !important;
+}
+
+.timeline1{
+  font-family: "Cormorant Garamond", serif;
+  text-transform: uppercase;
+  color: #95A58D;
+  font-size: 40px;
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
+
+.event-time-row {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.event-icon {
+  width: 16px;
+  height: 16px;
+}
+
