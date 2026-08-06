@@ -1,5 +1,5 @@
-<div class="container-fluid"  id="rsvp">
-  <div class="row" id="confirm">
+<div class="container-fluid" >
+  <div class="row" >
     <ngx-skeleton-loader *ngIf="!invitacionConfimacion" appearance="line" count="8"/>
     <div class="form-container" *ngIf="invitacionConfimacion" [formGroup]="formGroup">
       <br><br>
@@ -15,45 +15,35 @@
 
       <label *ngIf="!isFechaLimitePasada()">
           <input class="input-limite" type="radio" [checked]="!isFechaLimitePasada()" [disabled]="isFechaLimitePasada()" >
-        <div class="conten-inf">
+        <div class="conten-inf confirmation-summary">
 
           <p *ngIf="!!invitacionConfimacion?.nombre" class="text-title" id="label-nombre-invitado">
-            {{ confirmContainer['label-nombre-invitado'] || '' }}
+            <span class="summary-eyebrow">{{ confirmContainer['label-nombre-invitado'] || 'Invitación para' }}</span><br>
             <span class="" id="nombre-invitado">{{ invitacionConfimacion.nombre || "" }}</span>
           </p>
-          <br>
           <!--
           <p class="text-center text" id="recuerda-detalles">
             {{ confirmContainer['recuerda-detalles'] || 'Recuerda los siguientes detalles importantes' }}
           </p>
           -->
           <p *ngIf="!!invitacionConfimacion?.invitacion && !!invitacionConfimacion?.invitacion?.fecha_evento && !invitacionConfimacion.confirmacion"
-            class="text-center text" style="max-width: 600px;"
+            class="text-center text important-note"
             id="fecha-evento">
-            {{ confirmContainer['fecha-evento'] || traductorService.getTexto('mensajeBienvenidaConfirm') }}
+            <span class="note-label">Confirma antes del</span>
+            <span>{{ confirmContainer['fecha-evento'] || traductorService.getTexto('mensajeBienvenidaConfirm') }}</span>
             <span id="fecha-invitacion">
-                {{ invitacionConfimacion.fecha_limite_confirmo | date:"dd/MM/yyyy" }}
+                {{ invitacionConfimacion.fecha_limite_confirmo | date:"MM/dd/yyyy" }}
             </span>
           </p>
 
         </div>
-
         <div *ngIf="invitacionConfimacion.confirmacion?.confirmado == 1" >
           <p *ngIf="invitacionConfimacion.confirmacion" class="text-center text" id="total-invitados">
             {{ confirmContainer['total-invitados'] || traductorService.getTexto('totalInvitadosConfirmado') }}
             <span class="numeros"
                   id="total-number-invitados">{{ invitacionConfimacion.confirmacion.total_personas_conf || "" }}</span>
           </p>
-
-
-          <p *ngIf="invitacionConfimacion?.mesa_asignada && invitacionConfimacion?.confirmacion"
-            class="text-center text" id="num-mesa">
-            {{ confirmContainer['num-mesa'] || traductorService.getTexto('mesa') }}
-            <span class="numeros" id="total-number-invitados">{{ invitacionConfimacion.mesa_asignada }}</span>
-          </p>
-
         </div>
-
         <div *ngIf="!invitacionConfimacion.confirmacion && !invitacionConfimacion?.nombre"
             class="row justify-content-center mt-5">
           <div class="col-md-8 col-lg-6 col-12">
@@ -78,50 +68,60 @@
           <div class="colum-radio-button">
             <div class="radio-inputs">
               <div class="titulo-radio-button-container">
-                <p class="text-title">{{traductorService.getTexto("asistiras")}}</p>
+                <p class="text-title question-title">{{traductorService.getTexto("asistiras")}}</p>
+                <p class="choice-help">Selecciona una opción para continuar</p>
               </div>
               <div class="container-label-radio-button">
-                <label class="radio">
+                <label class="radio radio-yes">
                   <input
                     type="radio"
                     name="radio"
                     (change)="onRadioChange('si')"
                     [checked]="radioValue === 'si'"
                   />
-                  <span class="name">{{traductorService.getTexto("siAsistire")}}</span>
+                  <span class="name">
+                    <span class="option-icon">✓</span>
+                    <span class="option-copy">
+                      <strong>{{traductorService.getTexto("siAsistire")}}</strong>
+                      <small>Confirmar lugares</small>
+                    </span>
+                  </span>
                 </label>
-                <label class="radio">
+                <label class="radio radio-no">
                   <input
                     type="radio"
                     name="radio"
                     (change)="onRadioChange('no')"
                     [checked]="radioValue === 'no'"
                   />
-                  <span class="name">{{traductorService.getTexto("noAsistira")}}</span>
+                  <span class="name">
+                    <span class="option-icon">×</span>
+                    <span class="option-copy">
+                      <strong>{{traductorService.getTexto("noAsistira")}}</strong>
+                      <small>Avisar a los novios</small>
+                    </span>
+                  </span>
                 </label>
               </div>
             </div>
           </div>
         </div>
 
-
         <div *ngIf="showForm" >
           <div class="container-asistentes" >
             <div *ngIf="!invitacionConfimacion.confirmacion" class="container-cant-asis">
               <div class="colum-asistentes">
                 <label class="form-label  label-text" for="cant_asistir" id="label-cant-asis">
-                  {{ confirmContainer['label-cant-asis'] || traductorService.getTexto('cantidadAsistentes') }}
+                  <span class="info-label">Lugares reservados</span>
                 </label>
                 <div></div>
 
                 <input
-                  type="number"
-                  class="input-box w-10"
-                  formControlName="cant_asistir"
-                  id="cant_asistir"
-                  name="cant_asistir"
-                  [placeholder]="confirmContainer['cant_asistir'] || traductorService.getTexto('mensajeBienvenidaConfirm')"
-                  readonly
+                class="input-box w-10"
+                formControlName="cant_asistir" id="cant_asistir" name="cant_asistir"
+                [placeholder]="confirmContainer['cant_asistir'] || traductorService.getTexto('mensajeBienvenidaConfirm')"
+                type="number"
+                [disabled]="true"
                 />
               </div>
               <div *ngIf="!formGroup.get('cant_asistir')?.valid" class="error-alert-text" role="alert">
@@ -139,37 +139,25 @@
             <div *ngIf="!invitacionConfimacion.confirmacion && invitacionConfimacion.mesa_asignada" class="container-cant-asis">
               <div class="colum-asistentes">
                 <label class="form-label  label-text" for="mesa_asignada" id="label-cant-asis">
-                  {{ confirmContainer['label-cant-asis'] || traductorService.getTexto('mesaAsignada') }}
+                  <span class="info-label">Mesa asignada</span>
                 </label>
-                <div>
-
-                </div>
+                <div></div>
 
                 <input
                 class="input-box w-10"
-                formControlName="mesa_asignada"
-                id="mesa_asignada"
-                name="mesa_asignada"
+                formControlName="mesa_asignada" id="mesa_asignada" name="mesa_asignada"
                 [placeholder]="confirmContainer['mesa_asignada'] || ''"
-                type="number"
-                readonly
-              />
+                type="text"
+                [disabled]="true"
+                />
+              </div>
 
-              </div><br><br>
-              <p class="text-center text" style="max-width: 600px;" id="fecha-evento">
-                {{traductorService.getTexto('txtapconfirm')}}
-              </p>
             </div>
-            <!-- <p *ngIf="!!invitacionConfimacion?.mesa_asignada" class="text-center text" id="mesa-asignada">
-              {{ confirmContainer['mesa-asignada'] || 'Mesa asignada:' }}
-              <span class="fw-bold" id="mesa-numero">#{{ invitacionConfimacion.mesa_asignada || "" }}</span>
-            </p> -->
           </div>
-          <p  class="text-center text" id="label-nombre-invitado">
-            <span class="" id="nombre-invitado">{{  traductorService.getTexto('sininvitadostxt') }}</span>
-          </p>
+          <br>
           <div class="row justify-content-center mt-3">
             <div class="col-md-8 col-lg-6 col-12">
+              <p *ngIf="acompanantesList.length" class="guest-help">Escribe tu nombre y el nombre de tus acompañantes para ayudarnos a recibirlos mejor.</p>
               <div *ngFor="let acompanante of acompanantesList; let i = index " class=" row ">
 
                 <div class="contenedor-agregar-compañante col-7">
@@ -308,8 +296,6 @@
         </label>
 
       </div>
-
-
     </div>
   </div>
 </div>

@@ -53,7 +53,7 @@
 
 .timeline-line {
   width: 2px;
-  background-color: #95A58D;
+  background-color: #214662;
   position: relative;
   margin: 0 15px; /* Reduce el espacio horizontal */
 }
@@ -64,7 +64,7 @@
   justify-content: space-between; /* Distribuye los puntos uniformemente */
   align-items: center;
   width: 2px;
-  background-color: #95A58D;
+  background-color: #214662;
   position: relative;
   margin: 0 25px;
 }
@@ -79,13 +79,13 @@
 .timeline-point {
   width: 14px;
   height: 14px;
-  background-color: #95A58D;
+  background-color: #214662;
   border-radius: 50%;
 }
 
 .event-title {
 font-family: "Cormorant Garamond", serif;
-  color: #95A58D !important;
+  color: #214662 !important;
   text-decoration: none;
   font-stretch: expanded; /* Ensancha la fuente */
   text-transform: uppercase;
@@ -112,7 +112,7 @@ font-family: "Cormorant Garamond", serif;
   text-decoration: none;
   font-weight: 500;
   font-size: 16px;
-  color: #95A58D !important;
+  color: #214662 !important;
 }
 
 .event-ubi {
@@ -120,13 +120,13 @@ font-family: "Cormorant Garamond", serif;
   font-weight: 500;
   text-decoration: none;
   font-size: 20px;
-  color: #95A58D !important;
+  color: #214662 !important;
 }
 
 .timeline1{
   font-family: "Cormorant Garamond", serif;
   text-transform: uppercase;
-  color: #95A58D;
+  color: #214662;
   font-size: 40px;
   margin-top: 0%;
   margin-bottom: 0%;

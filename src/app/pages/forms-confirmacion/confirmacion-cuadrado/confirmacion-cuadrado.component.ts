@@ -7,7 +7,6 @@ import { ApiService } from '../../../Services/api/api.service';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import {NgIconComponent, NgIconsModule, provideIcons} from "@ng-icons/core";
 import { TraductorServicio } from '../../../Services/traductor.service';
-import 'sweetalert2/dist/sweetalert2.min.css';
 import Swal from 'sweetalert2';
 
 import {
@@ -80,7 +79,6 @@ export class ConfirmacionCuadradoComponent extends Confirmacion implements OnIni
     return this.invitacionConfimacion?.confirmacion?.total_personas_conf ?? 0; // Usa 0 si es undefined
   }
 
-  
   setText() {
     if (!!this.texts && this.texts != "") {
       this.texts = atob(this.texts);
@@ -150,42 +148,44 @@ export class ConfirmacionCuadradoComponent extends Confirmacion implements OnIni
     if (inputValue !== "") {
       // Opción 1: Confirmar asistencia
       Swal.fire({
-        title: this.traductorService.getTexto("confirmAsistenciatitle"),
-        showCancelButton: true,
-        cancelButtonText: this.traductorService.getTexto("opcancelar"), 
-        confirmButtonColor: "#c6b9d5",
-        cancelButtonColor: "#B6C5D5",
+          title: this.traductorService.getTexto("confirmAsistenciatitle"),
+          showCancelButton: true,
+          cancelButtonText: this.traductorService.getTexto("opcancelar"),
+          confirmButtonColor: "#214662",
+          cancelButtonColor: "#ab9047",
 
-    }).then((result) => {
-        if (result.isConfirmed) {
-          this.saveConfirmacion();
-          console.log("Asistencia confirmada.");
-        } else {
-            console.log("Confirmación cancelada.");
-        }
-    });
+      }).then((result) => {
+          if (result.isConfirmed) {
+            this.saveConfirmacion();
+            console.log("Asistencia confirmada.");
+          } else {
+              console.log("Confirmación cancelada.");
+          }
+      });
   } else {
       // Opción 2: No agregar invitados
-      // Opción 2: No agregar invitados
       Swal.fire({
-        title: this.traductorService.getTexto("sininvitadostitle"),
-        text: this.traductorService.getTexto("sininvitadostxt"),
-
-        showClass: {
-          popup: `
-            animate__animated
-            animate__fadeInUp
-            animate__faster
-          `
-        },
-        hideClass: {
-          popup: `
-            animate__animated
-            animate__fadeOutDown
-            animate__faster
-          `
+          title: this.traductorService.getTexto("sininvitadostitle"),
+          text: this.traductorService.getTexto("sininvitadostxt"),
+          showCancelButton: true,
+          confirmButtonText: this.traductorService.getTexto("txtnoagregare"),
+          cancelButtonText: this.traductorService.getTexto("txtsiagregare"),
+          confirmButtonColor: "#214662",
+          cancelButtonColor: "#ab9047",
+          customClass: {
+            title: 'custom-title',
+            confirmButton: 'custom-confirm-button',
+            cancelButton: 'custom-cancel-button'
         }
+      }).then((result) => {
+          if (result.isConfirmed) {
+            this.saveConfirmacion();
+            console.log("Invitados no agregados. Confirmación enviada.");
+          } else {
+              console.log("Confirmación cancelada para agregar invitados.");
+          }
       });
     }
   }
+
 }

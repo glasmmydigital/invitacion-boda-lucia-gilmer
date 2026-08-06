@@ -45,7 +45,7 @@
 
 .solofaltan {
   font-family: "Playfair Display", serif;
-  color: #95A58D; /* Cambia el color según el contraste necesario */
+  color: #214662; /* Cambia el color según el contraste necesario */
   font-size: 40px;
   margin-top: 0% !important;
   margin-bottom: 0% !important;
@@ -136,7 +136,7 @@
   }
 
   .contenedor-conteo {
-    background-color: #95A58D;
+    background-color: #214662;
     //padding: 20px; // Agrega padding
     display: flex; // Usar flexbox para alinear elementos
     flex-direction: column; // Dirección de los elementos en columna
@@ -325,7 +325,7 @@
 
 .textoTt {
   font-family: "Cormorant", serif;
-  color: #95A58D;
+  color: #214662;
   margin: 1% 5% 5% 5%;
   text-align: center;
   font-weight: 400;
@@ -480,7 +480,7 @@
     top: 12%;
     font-size: 2.5rem;
     align-items: center;
-    color: #95A58D;
+    color: #214662;
   }
 
   &:last-child::after {
@@ -492,14 +492,14 @@
   font-family: "Cormorant", serif;
   font-size: 2.5rem; /* Tamaño reducido del número */
   font-style: normal;
-  color: #95A58D; /* Color más fuerte */
+  color: #214662; /* Color más fuerte */
 }
 
 .etiqueta {
   font-size: 1.1rem; /* Tamaño de la etiqueta */
   font-family: "Playfair Display", serif;
   font-style: normal;
-  color: #95A58D; /* Color más fuerte */
+  color: #214662; /* Color más fuerte */
   margin-top: 5px;
 }
 
