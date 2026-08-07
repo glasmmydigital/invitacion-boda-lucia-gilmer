@@ -1,9 +1,9 @@
-.contenedor-kids{
+.contenedor-kids {
   position: relative;
   text-align: center;
 }
 
-.colum-kids{
+.colum-kids {
   padding: 5px;
   padding-bottom: 5%;
   display: flex;
@@ -15,29 +15,30 @@
   margin: 0px auto;
 }
 
-.textosec{
+.textosec {
   font-family: "Cormorant", serif;
   font-size: 20px;
   margin-right: 4%;
   margin-left: 4%;
 }
 
-.textosec span{
+.textosec span {
   font-family: "Cormorant", serif;
   font-size: 28px;
   margin-right: 4%;
   margin-left: 4%;
 }
 
-.titulo-kids{
-  font-family: "BrittanySignature";
-  font-size: 65px;
-  line-height: 1.7;
-  color: #ffffff;
-  margin-top: 10%;
-  margin-bottom: 5%;
+.titulo-kids {
+  font-family: "Cormorant Garamond", serif;
+  text-transform: uppercase;
+  font-size: 40px;
+  padding-top: 8%;
+  padding-bottom: 5%;
+  color: #fdfffd;
+  margin-bottom: 0% !important;
 }
 
-.img-icon{
+.img-icon {
   width: 25%;
 }

@@ -2,6 +2,10 @@ export const TEXT_ES:{[key: string]: string } = {
   primerTitulo: '¡NOS CASAMOS!',
   tNombres: 'Wendy y Christian',
   traduccion: 'Traducir a Inglés',
+  splashClick: 'Haz clic aqu\u00ed',
+  envelopeFor: 'Para',
+  seatReservedSingular: 'asiento reservado',
+  seatReservedPlural: 'asientos reservados',
   pCancion: 'Tu navegador no soporta el elemento de audio.',
   subTitulo: 'You are invited!',
   mensajeBienvenida1: 'Hay momentos en la vida que se vuelven extraordinarios cuando se comparten con quienes amamos.',
@@ -60,7 +64,7 @@ export const TEXT_ES:{[key: string]: string } = {
   subtituloRegalo: 'Lluvia de sobres',
   textoRegaloDos: 'Los obsequios en efectivo siempre son bienvenidos, pero nunca obligatorios. Todo lo que te pedimos es que estés aquí con nosotros.',
   // NO NIÑOS
-  tituloKids: 'Solo para adultos',
+  tituloKids: 'Sólo para adultos',
   textoKids: ' Adoramos a los pequeños, sin embargo esta celebración está destinada solo para adultos.¡Agradecemos su comprensión! <br><br> NO NIÑOS',
   // PASES
   tituloPases: 'PASES',

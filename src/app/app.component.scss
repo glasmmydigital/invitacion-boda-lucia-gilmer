@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+:host {
+  display: block;
+  width: 100%;
+  min-height: 100%;
+}
 
 @font-face {
   font-family: Carentro;
@@ -15,173 +19,371 @@
   src: url("/assets/BrittanySignature.ttf") format("truetype");
 }
 
-body {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: transparent;
-  overflow: hidden;
+@font-face {
+  font-family: "Romantic Lovely";
+  src: url("/assets/Romantic Lovely.ttf") format("truetype");
 }
 
-#clickText {
+.clickText {
   position: absolute;
-  font-family: "Playfair Display", serif ;
-  bottom: 30%; /* Ajusta según lo necesites */
+  bottom: 8%;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 1rem;
-  color: #5b7287; /* Cambia el color según lo necesites */
+  margin: 0;
+  padding: 0.85rem 2rem;
+  font-family: "Playfair Display", serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: #fff;
+  text-align: center;
+  background: rgba(14, 15, 13, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(203, 161, 97, 0.55);
+  border-radius: 999px;
   cursor: pointer;
-  z-index: 20; /* Para asegurarse de que esté por encima de los otros elementos */
-  transition: opacity 0.3s ease;
+  z-index: 20;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  animation: clickTextPulse 2.2s ease-in-out infinite;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.prueba
-{
+@keyframes clickTextPulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  50% {
+    opacity: 0.92;
+    transform: translateX(-50%) translateY(-5px);
+    box-shadow:
+      0 10px 32px rgba(203, 161, 97, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+}
+
+@keyframes clickLinePulse {
+
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scaleY(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleY(1.15);
+  }
+}
+
+.prueba {
   width: 100%;
 }
 
 #sobreContainer {
-  display: none;
+  position: fixed;
+  inset: 0;
   width: 100%;
   height: 100%;
+  z-index: 100;
   cursor: pointer;
-}
-
-#sobre1, #sobre2 {
-  position: absolute;
-  width: 85%;
-  height: 100%;
-  transition: transform 1s ease-in-out;
-}
-
-#sobre1 {
-  left: 0;
-  transform-origin: left center;
-}
-
-#sobre2 {
-  right: 0;
-  transform-origin: right center;
-}
-
-#sobre1.open {
-  transform: translateX(-100%);
-}
-
-#sobre2.open {
-  transform: translateX(100%);
-}
-
-#contenido {
-  position: relative;
-  width: 100%;
-  height: 100%;
-
-}
-
-#selloButton {
-  animation: pulse 1.5s infinite;
-  transition: transform 0.2s ease;
-  z-index: 30;
-  position: relative; /* necesario para el tooltip */
-  cursor: pointer;
-}
-
-/* efecto de "latido" */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
-}
-
-/* Tooltip estilizado */
-#selloButton::after {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #000;
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 6px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  font-size: 0.9rem;
-  font-family: "Playfair Display", serif;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  z-index: 50;
-}
-
-/* Flechita del tooltip */
-#selloButton::before {
-  content: "";
-  position: absolute;
-  bottom: -20px; /* Ajusta la posición de la flecha */
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 6px;
-  border-style: solid;
-  border-color: #000 transparent transparent transparent;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 50;
-}
-
-/* Mostrar tooltip al hover */
-#selloButton:hover::after,
-#selloButton:hover::before {
   opacity: 1;
+  visibility: visible;
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+  overscroll-behavior: none;
+  touch-action: none;
 }
 
+#sobreContainer.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
 
-/* Contenedor de la imagen */
-.image-container {
-  position: relative;
+.splash-screen,
+.video-screen {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: 60vh; /* La imagen ocupará el 60% de la altura de la pantalla */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
+  background: url('/assets/recursoImg02.png') center center / cover no-repeat;
+  transition: opacity 0.35s ease-in-out;
 }
 
-.cover-image {
+.splash-screen.hidden,
+.video-screen:not(.visible) {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.splash-screen {
+  z-index: 3;
+}
+
+.video-screen {
+  z-index: 2;
+}
+
+.splash-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
 
-/* Contenedor del texto */
-.text-container {
+.guest-stamp {
   position: absolute;
-  bottom: 10%; /* Ajusta según la posición deseada */
+  bottom: calc(8% + 74px);
   left: 50%;
+  z-index: 15;
+  width: min(82vw, 360px);
   transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 1rem;
+  color: #fff8ea;
+  text-align: center;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.42));
+  animation: guestStampIn 0.9s ease-out both, guestStampGlow 3.8s ease-in-out 1s infinite;
+}
+
+.stamp-label {
+  font-family: "Playfair Display", serif;
+  font-size: 0.68rem;
+  font-style: italic;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 248, 234, 0.82);
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.26),
+    0 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+.stamp-name {
+  max-width: 100%;
+  margin: 0.12rem 0 0.22rem;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.05rem, 10vw, 3.25rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1;
+  color: rgba(255, 248, 234, 0.96);
+  -webkit-text-stroke: 0.2px rgba(203, 161, 97, 0.48);
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.45),
+    0 2px 0 rgba(138, 101, 48, 0.46),
+    0 8px 16px rgba(0, 0, 0, 0.52),
+    0 0 18px rgba(203, 161, 97, 0.28);
+}
+
+.stamp-seats {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(0.82rem, 3.3vw, 1.08rem);
+  font-style: italic;
+  font-weight: 500;
+  color: rgba(255, 248, 234, 0.9);
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.28),
+    0 3px 9px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes guestStampIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(12px) scale(0.96);
+    filter: blur(3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes guestStampGlow {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 0.94;
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-3px);
+    opacity: 1;
+  }
+}
+
+.video-screen video {
   width: 100%;
-  font-size: 1.5rem;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  background: url('/assets/recursoImg02.png') center center / cover no-repeat;
 }
 
-/* Estilo del sello */
-#selloButton {
-  position: absolute;
-  top: 39%;
-  left: 30%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
+#contenido {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: transparent;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.6s ease-in-out 0.15s, visibility 0.6s ease-in-out 0.15s;
+}
+
+#contenido.content-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.floating-music {
+  position: fixed;
+  right: clamp(18px, 5vw, 34px);
+  bottom: clamp(18px, 5vw, 34px);
+  z-index: 60;
+  width: 56px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.74);
+  border-radius: 50%;
+  color: #ffffff;
+  background:
+    linear-gradient(145deg, rgba(255, 248, 234, 0.26), rgba(92, 64, 40, 0.12)),
+    #9B9E83;
+  box-shadow:
+    0 14px 30px rgba(92, 64, 40, 0.28),
+    inset 0 1px 0 rgba(255, 248, 234, 0.34);
+  backdrop-filter: blur(10px) saturate(115%);
+  -webkit-backdrop-filter: blur(10px) saturate(115%);
   cursor: pointer;
-  width: 40%; /* Ajusta el tamaño según tus necesidades */
-  height: auto;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
+.floating-music:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 18px 38px rgba(92, 64, 40, 0.34),
+    0 0 22px rgba(203, 161, 97, 0.28),
+    inset 0 1px 0 rgba(255, 248, 234, 0.42);
+}
 
-@media (min-width: 700px) {
+.music-icon {
+  position: relative;
+  width: 18px;
+  height: 22px;
+}
+
+.music-icon::before {
+  content: "";
+  position: absolute;
+  right: 2px;
+  top: 1px;
+  width: 3px;
+  height: 15px;
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: -8px 3px 0 currentColor;
+}
+
+.music-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 8px -3px 0 currentColor;
+}
+
+.music-wave {
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.floating-music.is-playing .music-wave {
+  animation: musicPulse 1.8s ease-out infinite;
+}
+
+.floating-music.is-playing .music-icon {
+  animation: musicFloat 1.4s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.86);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.28);
+  }
+}
+
+@keyframes musicFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-music {
+    width: 58px;
+    height: 58px;
+    right: 18px;
+    bottom: 18px;
+  }
+}
+
+@media (min-width: 769px) {
   #sobreContainer {
-    display: none;
+    display: none !important;
   }
+
   #contenido {
-    display: flex !important;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 }
-

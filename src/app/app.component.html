@@ -1,44 +1,56 @@
-<div id="sobreContainer">
-  <!-- Botón -->
-  <div class="tooltipWrapper">
-    <input
-      type="image"
-      src="assets/brocheImg.png"
-      name="saveForm"
-      class="selloButton"
-      id="selloButton"
-      aria-label="Abrir sobre"
-    >
-    <p id="clickText">Haz clic aquí</p>
-  </div>
+<div id="sobreContainer" *ngIf="showSplash" [class.fade-out]="isFadingOut" aria-hidden="true">
 
-  <!-- Imágenes del sobre -->
-  <img id="sobre1" src="assets/sobre2.png" alt="Lado izquierdo del sobre">
-  <img id="sobre2" src="assets/sobre1.png" alt="Lado derecho del sobre">
+    <div class="splash-screen" [class.hidden]="splashPhase !== 'image'" (click)="startVideo()">
+        <img src="assets/IMGPortada.png" alt="Invitaci&oacute;n" class="splash-image">
+        <div class="guest-stamp" *ngIf="envelopeGuestName">
+            <span class="stamp-label">{{ traductorService.getTexto('envelopeFor') }}</span>
+            <p class="stamp-name">{{ envelopeGuestName }}</p>
+            <span class="stamp-seats">{{ envelopeGuestSeats }} {{ envelopeSeatsText }}</span>
+        </div>
+        <p class="clickText">{{ traductorService.getTexto('splashClick') }}</p>
+    </div>
+
+    <div class="video-screen" [class.visible]="splashPhase === 'video'">
+        <video #introVideo playsinline preload="auto" muted poster="assets/IMGPortada.png" (ended)="onVideoEnded()">
+            <source src="assets/videoSobre.mp4" type="video/mp4">
+        </video>
+    </div>
+
 </div>
-<div id="contenido" class="contenido" style="display: none;">
-  <div class="prueba">
-    <app-portada></app-portada>
-    <app-img-flores></app-img-flores>
-    <!-- <app-nom-padres></app-nom-padres> -->
-    <app-guar-fech></app-guar-fech><br>
-    <app-cerm-recep></app-cerm-recep>
-    <app-seg-img-flores></app-seg-img-flores>
-    <app-momentos></app-momentos>
-    <app-timeline></app-timeline>
-    <app-drees-code></app-drees-code>
-    <app-regalos></app-regalos><br><br>
-    <app-fech-img></app-fech-img><br><br>
-    <app-kids></app-kids>
-    <app-confir-asisten></app-confir-asisten>
-    <app-confirmacion-cuadrado></app-confirmacion-cuadrado>
-    <!--
+<audio #audioPlayer id="audioPlayer" preload="auto" (ended)="onAudioEnded()">
+    <source src="assets/cancionX&J.mp3" type="audio/mpeg">
+</audio>
+
+<button class="floating-music" type="button" *ngIf="contentVisible" [class.is-playing]="isAudioPlaying"
+    (click)="toggleAudio()" [attr.aria-label]="isAudioPlaying ? 'Pause music' : 'Play music'">
+    <span class="music-icon" aria-hidden="true"></span>
+    <span class="music-wave" aria-hidden="true"></span>
+</button>
+
+
+<div id="contenido" class="contenido" [class.content-visible]="contentVisible">
+    <div class="prueba">
+        <app-portada></app-portada>
+        <app-img-flores></app-img-flores>
+        <!-- <app-nom-padres></app-nom-padres> -->
+        <app-guar-fech></app-guar-fech><br>
+        <app-cerm-recep></app-cerm-recep>
+        <app-seg-img-flores></app-seg-img-flores>
+        <app-momentos></app-momentos>
+        <app-timeline></app-timeline>
+        <app-drees-code></app-drees-code>
+        <app-regalos></app-regalos><br><br>
+        <app-fech-img></app-fech-img><br><br>
+        <app-kids></app-kids>
+        <app-confir-asisten></app-confir-asisten>
+        <app-confirmacion-cuadrado></app-confirmacion-cuadrado>
+        <!--
       
       <app-img-flores></app-img-flores>
       
       <app-confirmacion-cuadrado></app-confirmacion-cuadrado>
      -->
-    <app-des-img></app-des-img><br><br>
-    <app-glasmmy></app-glasmmy>
-  </div>
+        <app-des-img></app-des-img><br><br>
+        <app-glasmmy></app-glasmmy>
+    </div>
 </div>

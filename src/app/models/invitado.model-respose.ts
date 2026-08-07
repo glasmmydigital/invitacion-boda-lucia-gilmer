@@ -6,6 +6,7 @@ export interface InvitadoModelRespose {
   invitacion_id: number;
   mesa_asignada: string;
   nombre: string;
+  telefono: string;
   updated_at: string;
   confirmacion?: {
     confirmado: number;
@@ -25,6 +26,6 @@ export interface InvitadoModelRespose {
     nombre: string;
     updated_at: string;
     url_lugar_evento: string;
-
+    idioma_default: string;
   }
 }
