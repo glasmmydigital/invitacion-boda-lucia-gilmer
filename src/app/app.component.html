@@ -17,12 +17,8 @@
     </div>
 
 </div>
-<audio #audioPlayer id="audioPlayer" preload="auto" (ended)="onAudioEnded()">
-    <source src="assets/cancionX&J.mp3" type="audio/mpeg">
-</audio>
-
 <button class="floating-music" type="button" *ngIf="contentVisible" [class.is-playing]="isAudioPlaying"
-    (click)="toggleAudio()" [attr.aria-label]="isAudioPlaying ? 'Pause music' : 'Play music'">
+    (click)="toggleAudio($event)" [attr.aria-label]="isAudioPlaying ? 'Pause music' : 'Play music'">
     <span class="music-icon" aria-hidden="true"></span>
     <span class="music-wave" aria-hidden="true"></span>
 </button>
@@ -42,7 +38,7 @@
         <app-regalos></app-regalos><br><br>
         <app-fech-img></app-fech-img><br><br>
         <app-kids></app-kids>
-        <app-confir-asisten></app-confir-asisten>
+        <!-- <app-confir-asisten></app-confir-asisten> -->
         <app-confirmacion-cuadrado></app-confirmacion-cuadrado>
         <!--
       

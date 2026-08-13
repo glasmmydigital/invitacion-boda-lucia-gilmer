@@ -14,7 +14,7 @@ export class PortadaComponent {
   constructor(public traductorService: TraductorServicio) {}
 
   ngOnInit() {
-    const fechaObjetivo = new Date('2026-09-12T11:59:59'); // Cambia esto por la fecha de tu boda
+    const fechaObjetivo = new Date('2026-09-12T15:30:00'); // Cambia esto por la fecha de tu boda
 
     const actualizarContador = () => {
         if (typeof document !== 'undefined') { // Verificación de entorno

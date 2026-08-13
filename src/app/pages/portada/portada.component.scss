@@ -24,6 +24,11 @@
   src: url("/assets/Nathalia.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: Adelia;
+  src: url("/assets/adelia.ttf") format("truetype");
+}
+
 .tituloportada {
   position: absolute;
   width: 100%;
@@ -81,8 +86,9 @@
 
 .ampersand {
   padding-right: 0%;
-  font-family: Nathalia;
-  font-size: 90px;
+  font-family: nathalia;
+  font-size: 64px;
+  line-height: 1.2;
   color: #ffffff; /* evita que interfiera con selección/click */
 }
 
@@ -243,12 +249,15 @@
 }
 
 .textoBoda {
-  font-family: "Nathalia";
+  font-family: "Adelia";
   color: #fbfbfb;
   text-align: center;
-  font-size: 50px;
+  font-size: 23px;
+  line-height: 1.35;
   margin-right: 0%;
   margin-left: 0%;
+  padding-top: 12px;
+  padding-bottom: 6px;
 }
 
 /* The switch - the box around the slider */

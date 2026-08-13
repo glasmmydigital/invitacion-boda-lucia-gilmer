@@ -24,6 +24,58 @@
   margin-bottom: 0%;
 }
 
+.restricted-colors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin: 20px 0;
+}
+
+.restricted-color {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  flex: 0 0 auto;
+}
+
+.restricted-color::after {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  width: 2px;
+  height: 60px;
+  background-color: #ffffff;
+  transform: translateX(-50%) rotate(38deg);
+  transform-origin: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.color-blue {
+  background-color: #214662;
+}
+
+.color-red {
+  background-color: #cf1f2d;
+}
+
+.color-green {
+  background-color: #2f6d46;
+}
+
+.color-white {
+  background-color: #ffffff;
+  border-color: #d9d9d9;
+}
+
+.color-white::after {
+  background-color: #214662;
+}
+
 .img-1 {
   display: none;
 }
@@ -54,13 +106,17 @@
 }
 
 .titulop{
-  font-family: "BrittanySignature";
-  text-align: right;
-  font-size: 65px;
-  line-height: 1.7;
+  font-family: "Adelia";
+  width: 100%;
+  text-align: center;
+  font-size: 52px;
+  line-height: 1.45;
   color: #ffffff;
   margin-top: 18%;
-  margin-bottom: 5%;
+  margin-bottom: 4%;
+  padding-top: 18px;
+  padding-bottom: 8px;
+  overflow: visible;
 }
 
 .img-icon{

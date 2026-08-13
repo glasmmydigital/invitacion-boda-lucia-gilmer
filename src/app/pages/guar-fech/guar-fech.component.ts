@@ -20,7 +20,7 @@ export class GuarFechComponent {
     const dia = "12".padStart(2, '0');
 
     const startDate = `${ano}${mes}${dia}`;
-    const title = "Recordatorio de la boda de Gilmer y Lucia";
+    const title = "Recordatorio de la boda de Lucia y Junnior";
 
     // Crear el contenido del archivo .ics
     const icsMSG = [

@@ -45,6 +45,20 @@ export abstract class Confirmacion {
     return this.formGroup.get(formControlName)?.errors
   }
 
+  protected getAcompananteNames(): string[] {
+    return this.acompanantesList
+      .map(controlName => ((this.formGroup.get(controlName)?.value as string) || '').trim())
+      .filter(value => value.length > 0);
+  }
+
+  hasAcompananteName(): boolean {
+    return this.getAcompananteNames().length > 0;
+  }
+
+  protected markAcompanantesAsTouched(): void {
+    this.acompanantesList.forEach(controlName => this.formGroup.get(controlName)?.markAsTouched());
+  }
+
   protected  radioValue: string = '';
 
   // Método para obtener el estado del radio seleccionado
@@ -57,16 +71,18 @@ export abstract class Confirmacion {
     if(this.radioValue === 'no'){
       asistencia = false;
     }
+
+    const nombreInvitadosList = this.getAcompananteNames();
+
+    if (asistencia && nombreInvitadosList.length === 0) {
+      this.markAcompanantesAsTouched();
+      this.isLoading = false;
+      return;
+    }
+
     this.isLoading = true;
 
-    const acompanantesList = this.acompanantesList.map((controlName, index) => {
-      const element = document.getElementById(`acompanante-${index + 1}`) as HTMLInputElement;
-      return element ? element.value.trim() : '';
-    });
-
-    const hasAcompananteValue = acompanantesList.some(value => value.length > 0);
-
-    if (this.formGroup?.valid || hasAcompananteValue) {//Entrará cuando el invitado confirme asistencia y describa el nombre de sus acompañantes
+    if (!asistencia || this.formGroup?.valid) {//Entrará cuando el invitado confirme asistencia y describa el nombre de sus acompañantes
       const values: any = {
         invitado_nombre: this.formGroup?.get("nombre")?.value,
         total_personas_conf: this.formGroup?.get("cant_asistir")?.value,
@@ -78,9 +94,6 @@ export abstract class Confirmacion {
       }
       console.log(this.formGroup.value)
       if (asistencia === true) {
-        // Obtenemos la lista de nombres de los acompañantes
-        const nombreInvitadosList = this.acompanantesList.map(controlNames => (this.formGroup.get(controlNames)?.value as string).trim());
-
         // Verificamos si solo hay un nombre
         if (nombreInvitadosList.length === 1) {
           // Si solo hay un nombre, asignamos ese nombre sin coma
@@ -105,38 +118,11 @@ export abstract class Confirmacion {
           console.error(err)
         }
       })
-    }if (this.formGroup.valid == false){//Entrará cuando el invitado confirme asistencia y no especifique el nombre de sus acompañantes
-      const values: any = {
-        invitado_nombre: this.formGroup?.get("nombre")?.value,
-        total_personas_conf: this.formGroup?.get("cant_asistir")?.value,
-        mesa_asignada: this.formGroup?.get("mesa_asignada")?.value,
-        invitado_id: this.invitacionConfimacion?.id,
-        invitacion_id: this.invitacionConfimacion?.invitacion.id,
-        confirmado: asistencia,
-        fecha_confirmacion: new Date().getTime(),
-      }
-      console.log(this.formGroup.get('checkBAgregarNombres'))
-      //if (this.formGroup.get('checkBAgregarNombres')?.value) {
-        const nombreInvitadosText = 'No especificado ';
-        values['acompanantes'] = nombreInvitadosText.substring(0, nombreInvitadosText.length - 1)
-      //}
-      this.apiServ.confirmar(values).subscribe({
-        next: response => {
-          if (!isNaN(response)) {
-            this._invitacionConfimacion = undefined;
-            window.location.reload();
-            this.loadConfirmacionInfo(this.accessToken);
-            this.isLoading = false
-          }
-        },
-        error: err => {
-          console.error(err)
-        }
-      })
     }else{
       console.log(this.formGroup)
       this.formGroup?.get("nombre")?.markAsTouched();
       this.formGroup?.get("cantidad_invitados")?.markAsTouched();
+      this.markAcompanantesAsTouched();
       this.isLoading = false
       console.log('errors', this.formGroup.errors, this.formGroup?.valid)
     }

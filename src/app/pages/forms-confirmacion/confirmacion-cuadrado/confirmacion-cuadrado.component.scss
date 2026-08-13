@@ -1,11 +1,6 @@
 @font-face {
-  font-family: "Muli";
-  src: url(/assets/fonts/muli/Muli-Regular.ttf) format("ttf");
-}
-
-@font-face {
-  font-family: BrittanySignature;
-  src: url("/assets/BrittanySignature.ttf") format("truetype");
+  font-family: Adelia;
+  src: url("/assets/adelia.ttf") format("truetype");
 }
 
 $azul-invitacion: #214662;
@@ -79,32 +74,29 @@ $blanco: #ffffff;
 
 .text-title {
   margin: 0;
+  padding-bottom: 10px;
   color: $blanco;
-  font-family: "BrittanySignature";
-  font-size: 48px;
+  font-family: "Adelia";
+  font-size: 40px;
   font-weight: 300;
-  font-style: normal;
-  line-height: 1.15;
+  line-height: 1.22;
 }
 
 .question-title {
   margin: 6px auto 8px;
-  font-size: 40px;
+  font-size: 34px;
   line-height: 1.28;
 }
 
 .summary-eyebrow,
-.note-label,
 .info-label,
 .choice-help,
 .guest-help {
   display: block;
   font-family: "Quicksand", sans-serif;
-  font-style: normal;
 }
 
 .summary-eyebrow,
-.note-label,
 .info-label {
   margin-bottom: 6px;
   color: $azul-palido;
@@ -116,11 +108,11 @@ $blanco: #ffffff;
 #nombre-invitado {
   display: block;
   margin: 12px auto 18px;
-  font-family: "BrittanySignature";
-  font-size: 58px;
+  padding-bottom: 12px;
+  font-family: "Adelia";
+  font-size: 32px;
   font-weight: 300;
-  font-style: normal;
-  line-height: 1;
+  line-height: 1.24;
   max-width: 92%;
   overflow-wrap: anywhere;
 }
@@ -180,7 +172,6 @@ $blanco: #ffffff;
   font-family: "Cormorant Garamond", serif;
   font-size: 34px;
   font-weight: 700;
-  font-style: normal;
 }
 
 .choice-help,
@@ -189,6 +180,11 @@ $blanco: #ffffff;
   color: $azul-palido;
   font-size: 15px;
   line-height: 1.35;
+}
+
+.choice-help {
+  font-family: "Cormorant", serif;
+  font-size: 17px;
 }
 
 .container-radio-button,
@@ -273,6 +269,11 @@ $blanco: #ffffff;
   display: block;
 }
 
+.option-copy strong {
+  font-size: 18px;
+  line-height: 1.2;
+}
+
 .option-copy small {
   font-size: 12px;
   font-weight: 400;
@@ -349,7 +350,6 @@ $blanco: #ffffff;
   font-family: "Cormorant Garamond", serif;
   font-size: 30px;
   font-weight: 700;
-  font-style: normal;
   line-height: 1.1;
   text-align: right;
   box-shadow: none;
@@ -478,16 +478,18 @@ input::placeholder {
 .confirmacion-terminada,
 .titulo-radio-button {
   margin: 18px auto 0;
+  padding-bottom: 12px;
   color: $blanco;
-  font-family: "BrittanySignature";
-  font-size: 44px;
+  font-family: "Adelia";
+  font-size: 36px;
   font-weight: 300;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
 .titulo-radio-button {
   margin-bottom: 10px;
-  font-size: 32px;
+  padding-bottom: 10px;
+  font-size: 28px;
 }
 
 .list-group {
@@ -515,13 +517,21 @@ input::placeholder {
 }
 
 .error-alert-text {
-  width: 100%;
   margin: 10px auto 0;
-  color: #7c2222;
-  font-family: "Quicksand", sans-serif;
-  font-size: 14px;
-  line-height: 1.25;
+  color: rgba(255, 248, 234, 0.92);
+  font-family: "Cormorant", serif;
+  font-size: 15px;
+  line-height: 1.3;
   text-align: center;
+}
+
+.guest-name-alert {
+  grid-column: 1 / -1;
+  margin: 4px auto 0;
+  padding: 7px 12px;
+  border: 1px solid rgba(203, 161, 97, 0.45);
+  border-radius: 20px;
+  background-color: rgba(203, 161, 97, 0.12);
 }
 
 @media (max-width: 768px) {
@@ -538,16 +548,16 @@ input::placeholder {
   }
 
   .text-title {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   #nombre-invitado {
-    font-size: 50px;
-    line-height: 1.3;
+    font-size: 30px;
+    line-height: 1.25;
   }
 
   .question-title {
-    font-size: 40px;
+    font-size: 32px;
     line-height: 1.28;
   }
 
@@ -563,7 +573,11 @@ input::placeholder {
   .radio .name {
     min-height: 44px;
     padding: 8px 10px;
-    font-size: 13px;
+    font-size: 15px;
+  }
+
+  .option-copy strong {
+    font-size: 17px;
   }
 
   .option-icon {

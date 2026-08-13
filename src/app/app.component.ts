@@ -63,10 +63,9 @@ export class AppComponent implements OnInit {
   private isDesktopViewport = false;
   private openInvitationTimer?: ReturnType<typeof setTimeout>;
   private firstInteractionHandled = false;
+  private userPausedAudio = false;
 
   @ViewChild('introVideo') introVideo?: ElementRef<HTMLVideoElement>;
-
-  @ViewChild('audioPlayer') audioPlayer?: ElementRef<HTMLAudioElement>;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -81,6 +80,7 @@ export class AppComponent implements OnInit {
       this.loadEnvelopeGuestInfo();
       window.addEventListener('resize', () => this.onViewportResize());
       this.setupFirstInteractionPlayback();
+      this.setupAudioStateSync();
     }
   }
 
@@ -100,18 +100,13 @@ export class AppComponent implements OnInit {
   requestAnimationFrame(() => {
 
     const video = this.introVideo?.nativeElement;
-    const audio = this.document.getElementById('audioPlayer') as HTMLAudioElement | null;
 
     if (!video) {
       console.log('Intro video element not found.');
       return;
     }
 
-    if (audio) {
-      audio.volume = 0.7;
-      audio.loop = true;
-      audio.play().catch(err => console.log('Audio play error:', err));
-    }
+    this.playInvitationAudio();
 
     video.currentTime = 0;
     video.play().catch(err => console.log('Video play error:', err));
@@ -142,21 +137,21 @@ export class AppComponent implements OnInit {
     }, 1000);
   }
 
-  toggleAudio(): void {
-    const audio = this.audioPlayer?.nativeElement;
-    if (!audio) return;
+  toggleAudio(event?: Event): void {
+    event?.stopPropagation();
 
-    if (audio.paused) {
-      this.playInvitationAudio();
+    const audios = this.getInvitationAudios();
+    if (!audios.length) return;
+
+    if (audios.some(audio => !audio.paused)) {
+      this.userPausedAudio = true;
+      audios.forEach(audio => audio.pause());
+      this.isAudioPlaying = false;
       return;
     }
 
-    audio.pause();
-    this.isAudioPlaying = false;
-  }
-
-  onAudioEnded(): void {
-    this.isAudioPlaying = false;
+    this.userPausedAudio = false;
+    this.playInvitationAudio();
   }
 
   private applyViewportMode(): void {
@@ -207,6 +202,7 @@ export class AppComponent implements OnInit {
     const resumePlayback = () => {
       if (this.firstInteractionHandled) return;
       this.firstInteractionHandled = true;
+      if (this.userPausedAudio) return;
       this.playInvitationAudio();
     };
 
@@ -216,13 +212,28 @@ export class AppComponent implements OnInit {
     });
   }
 
+  private setupAudioStateSync(): void {
+    const updateAudioState = () => {
+      this.isAudioPlaying = this.getInvitationAudios().some(audio => !audio.paused);
+    };
+
+    this.document.addEventListener('play', updateAudioState, true);
+    this.document.addEventListener('pause', updateAudioState, true);
+    this.document.addEventListener('ended', updateAudioState, true);
+  }
+
   private playInvitationAudio(): void {
-    const audio = this.audioPlayer?.nativeElement
-      || this.document.getElementById('audioPlayer') as HTMLAudioElement | null;
+    if (this.userPausedAudio) return;
+
+    const audio = this.getInvitationAudio();
     if (!audio) {
       console.log('Audio player element not found.');
       return;
     }
+
+    this.getInvitationAudios()
+      .filter(otherAudio => otherAudio !== audio)
+      .forEach(otherAudio => otherAudio.pause());
 
     audio.volume = 0.7;
     audio.loop = true;
@@ -236,6 +247,14 @@ export class AppComponent implements OnInit {
           console.log('Audio play was blocked until the user interacts with the page.');
         });
     }
+  }
+
+  private getInvitationAudio(): HTMLAudioElement | null {
+    return this.document.getElementById('invitationAudioPlayer') as HTMLAudioElement | null;
+  }
+
+  private getInvitationAudios(): HTMLAudioElement[] {
+    return Array.from(this.document.querySelectorAll('audio'));
   }
 
   private loadEnvelopeGuestInfo(): void {

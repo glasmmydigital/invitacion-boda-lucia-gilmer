@@ -1,6 +1,6 @@
 export const TEXT_EN:{[key: string]: string } = {
-  primerTitulo: 'WE MERRIED!',
-  tNombres: 'Valeria & Josué',
+  primerTitulo: 'WE ARE GETTING MARRIED!',
+  tNombres: 'Lucia & Junnior',
   traduccion: 'Translate to Spanish',
   pCancion: 'Your browser does not support the audio element.',
   subTitulo: 'You are invited!',
@@ -24,11 +24,11 @@ export const TEXT_EN:{[key: string]: string } = {
   guardaFecha: 'Save the date',
   // CEREMONIA Y RECEPCIÓN
   tituloCeremonia: 'CEREMONY AND RECEPTION',
-  direccionCeremonia: 'Finca Santa Isabel, Antigua Guatemala',
+  direccionCeremonia: 'Nuestra Señora del Carmen Church, Piura, Peru',
   horaCeremonia: 'Time: 3:30 P.M.',
   ubicacion: 'See Location',
   tituloRecepcion: 'RECEPTION',
-  direccionRecepcion: 'Convento Santa Clara, Antigua Guatemala',
+  direccionRecepcion: 'Events Center El Remanso, Los Ejidos, Piura, Peru',
   horaRecepcion: 'Time: 5:00 P.M.',
   //ITINERARIO
   tituloItinerario1: 'TIMELINE',
@@ -60,7 +60,7 @@ export const TEXT_EN:{[key: string]: string } = {
   subtituloRegalo: 'Rain of envelopes',
   textoRegaloDos: 'Cash gifts are always welcome, but never obligatory. All we ask is that you be here with us.',
   // NO NIÑOS
-  tituloKids: 'Nour Kids',
+  tituloKids: 'Adults Only',
   textoKids: 'We love children and they always fill our lives with joy. However, on this occasion, we have decided that our wedding will be an adults-only event.',
   // PASES
   tituloPases: 'PASSES',
@@ -97,13 +97,13 @@ export const TEXT_EN:{[key: string]: string } = {
   teEsperamos: 'We look forward to seeing you!',
   asistiras: 'Can you attend?',
   siAsistire: 'Yes I will attend',
-  noAsistira: 'I won´t attend',
+  noAsistira: "I won't attend",
   estasSeguro: 'Are you sure?',
   fechaConfirmacionCaducada: 'The deadline to confirm your attendance has passed!',
   fechaConfirmacionCaducadaDos: 'If you like, you can communicate with the couple.',
   // DESPEDIDA
   tituloDespedida: 'With love,',
-  DespedidaNombres: 'Dahne and Daniel',
+  DespedidaNombres: 'Lucia and Junnior',
   // GLASMMY
   textoGlasmmy: 'Created with love by',
   glasmmy: 'GlasmmyDigital'

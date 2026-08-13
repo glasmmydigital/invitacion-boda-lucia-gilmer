@@ -136,16 +136,22 @@ export class ConfirmacionCuadradoComponent extends Confirmacion implements OnIni
 
   // validaciones
   saveConfir(): void {
+    const hasAcompananteName = this.getAcompananteNames().length > 0;
 
-    const hasEmptyNames = this.acompanantesList.some((_, index) => {
-      const control = this.formGroup.get(`acompanante${index}`);
-      return control && (control.value as string).trim() === '';
-    });
+    if (!hasAcompananteName) {
+      this.markAcompanantesAsTouched();
+      Swal.fire({
+        title: this.traductorService.getTexto("alertaMinimoConfirmaciones"),
+        text: this.traductorService.getTexto("sininvitadostxt"),
+        confirmButtonColor: "#214662",
+        customClass: {
+          title: 'custom-title',
+          confirmButton: 'custom-confirm-button'
+        }
+      });
+      return;
+    }
 
-    console.log("Prueba console");
-
-    const inputValue = (this.document.getElementById('input-nombre-acompanante')as HTMLInputElement)?.value.trim() || '';
-    if (inputValue !== "") {
       // Opción 1: Confirmar asistencia
       Swal.fire({
           title: this.traductorService.getTexto("confirmAsistenciatitle"),
@@ -162,30 +168,6 @@ export class ConfirmacionCuadradoComponent extends Confirmacion implements OnIni
               console.log("Confirmación cancelada.");
           }
       });
-  } else {
-      // Opción 2: No agregar invitados
-      Swal.fire({
-          title: this.traductorService.getTexto("sininvitadostitle"),
-          text: this.traductorService.getTexto("sininvitadostxt"),
-          showCancelButton: true,
-          confirmButtonText: this.traductorService.getTexto("txtnoagregare"),
-          cancelButtonText: this.traductorService.getTexto("txtsiagregare"),
-          confirmButtonColor: "#214662",
-          cancelButtonColor: "#ab9047",
-          customClass: {
-            title: 'custom-title',
-            confirmButton: 'custom-confirm-button',
-            cancelButton: 'custom-cancel-button'
-        }
-      }).then((result) => {
-          if (result.isConfirmed) {
-            this.saveConfirmacion();
-            console.log("Invitados no agregados. Confirmación enviada.");
-          } else {
-              console.log("Confirmación cancelada para agregar invitados.");
-          }
-      });
-    }
   }
 
 }

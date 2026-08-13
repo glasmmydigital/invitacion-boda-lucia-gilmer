@@ -29,7 +29,6 @@
           <p *ngIf="!!invitacionConfimacion?.invitacion && !!invitacionConfimacion?.invitacion?.fecha_evento && !invitacionConfimacion.confirmacion"
             class="text-center text important-note"
             id="fecha-evento">
-            <span class="note-label">Confirma antes del</span>
             <span>{{ confirmContainer['fecha-evento'] || traductorService.getTexto('mensajeBienvenidaConfirm') }}</span>
             <span id="fecha-invitacion">
                 {{ invitacionConfimacion.fecha_limite_confirmo | date:"MM/dd/yyyy" }}
@@ -58,7 +57,7 @@
               role="alert">
 
             <p *ngIf="validators('nombre').required" id="error-nombre">
-              {{ confirmContainer['error-nombre'] || 'Ingresa tu nombre para confirmar tu asistencía' }}
+              {{ confirmContainer['error-nombre'] || 'Ingresa tu nombre para confirmar tu asistencia' }}
             </p>
 
           </div>
@@ -163,10 +162,13 @@
                 <div class="contenedor-agregar-compañante col-7">
                   <div class="colum-nombre-asistente">
                     <input [formControlName]="acompanante" [name]="acompanante" class="nombre-acompanante input-box2 "
-                          id="input-nombre-acompanante"
+                          [id]="'input-nombre-acompanante-' + (i + 1)"
 
-                          [placeholder]="confirmContainer['input-nombre-acompanante'] || traductorService.getTexto('NombreInvitadoInput')" required
+                         [placeholder]="confirmContainer['input-nombre-acompanante'] || traductorService.getTexto('NombreInvitadoInput')"
                     />
+                    <p *ngIf="formGroup.get(acompanante)?.touched && !hasAcompananteName()" class="error-alert-text guest-name-alert">
+                      Escribe al menos un nombre para confirmar.
+                    </p>
                     <div>
                     </div>
                     <div class="container-mas-menos">

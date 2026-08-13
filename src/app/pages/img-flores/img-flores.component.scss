@@ -7,7 +7,7 @@
     display: block;
     margin-left: 0%;
     position: absolute;
-    width: 46%;
+    width: 43%;
     margin-top: -343%; 
   }
 }
@@ -20,11 +20,11 @@
 /* Muestra la imagen solo en teléfonos (máximo 768px de ancho, ajusta según lo necesario) */
 @media screen and (max-width: 500px) {
   .img-2{
-      display: block;
-      margin-left: 61%;
-      position: absolute;
-      width: 40%;
-      margin-top: -335%;
+    display: block;
+    margin-left: 64%;
+    position: absolute;
+    width: 36%;
+    margin-top: -332%;
   }
 }
 
